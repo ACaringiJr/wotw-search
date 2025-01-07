@@ -9,7 +9,7 @@ document.querySelector("form.sectionForm").addEventListener("submit", function(e
   
   // Wait for the iframe content to load
   iframe.onload = function() {
-    // Ensure we can access the iframe content (same-origin policy issue can block this)
+    // Try to inject custom styles into the iframe
     try {
       let iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
       
@@ -20,7 +20,6 @@ document.querySelector("form.sectionForm").addEventListener("submit", function(e
           font-family: "Trebuchet MS", sans-serif !important;
         }
       `;
-      
       iframeDoc.head.appendChild(styleTag);
     } catch (error) {
       console.error("Error injecting styles: ", error);
