@@ -62,3 +62,10 @@ footer {
   background: #333;
   color: white;
 }
+
+/* Full width and greater height for the iframe */
+iframe.strayer {
+  width: 100%; /* Full width */
+  height: 80vh; /* 80% of the viewport height */
+  border: none; /* Clean appearance without border */
+}
