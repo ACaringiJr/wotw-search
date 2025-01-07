@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Section Viewer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Dynamic Section Viewer</h1>
+  </header>
+  <main>
+    <form class="sectionForm">
+      <label for="section">Enter Section Number:</label>
+      <input type="number" id="section" placeholder="e.g., 1" required>
+      <button type="submit">Load Section</button>
+    </form>
+    <div class="iframe-container">
+      <iframe class="strayer" title="Section Viewer"></iframe>
+    </div>
+    <div class="feedback" id="feedback"></div>
+  </main>
+  <footer>
+    <p>&copy; 2025 YourName. Powered by GitHub Pages.</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
