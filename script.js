@@ -7,5 +7,5 @@ document.querySelector("form.sectionForm").addEventListener("submit", function(e
   // Set the iframe source URL
   iframe.src = "https://digfir-published.macmillanusa.com/strayersources3ehs/strayersources3ehs_ch" + section + ".html";
   
-  iframe.contentWindow.document.querySelector("body").style.fontFace = "Trebuchet MS";
+  document.querySelector("main").style.width  = iframe.contentWindow.document.body.scrollWidth + 'px';
 });
