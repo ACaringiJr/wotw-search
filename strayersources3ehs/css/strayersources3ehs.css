@@ -43,6 +43,7 @@ p {
     line-height: 1.5;
     text-indent: 1.75em;
     margin-bottom: 0;
+    font-family: Garamond, serif;
 }
 [data-type="box"] {
 	border: none;
