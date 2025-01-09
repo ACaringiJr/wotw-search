@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<manifest id="strayersources3ehs">
+  <manuscript id="5697f37e757a2e7c42000001" title="22. The End of Empire" question-delivery-method="ARGA" number="22">
+    <section title="Author Preview Video with Robert Strayer for Chapter 22" id="strayersources3ehs_ch22_authprev" folder="false" filename="strayersources3ehs_ch22_1.html" dlapFilename="strayersources3ehs_ch22_1_dlap.xml" numquestions="0"/>
+    <section title="Introduction to Chapter 22" id="strayersources3ehs-ch22-sec1-1" folder="false" filename="strayersources3ehs_ch22_2.html" dlapFilename="strayersources3ehs_ch22_2_dlap.xml" numquestions="0"/>
+    <section title="Guided Reading Exercise for Chapter 22" id="strayersources3ehs_ch22_gre" folder="false" filename="strayersources3ehs_ch22_3.html" dlapFilename="strayersources3ehs_ch22_3_dlap.xml" numquestions="0"/>
+    <section id="strayersources3ehs-ch22-sec1-001" folder="true" filename="strayersources3ehs_ch22_4.html" dlapFilename="strayersources3ehs_ch22_4_dlap.xml" numquestions="0">
+      <title>Toward Freedom: Struggles for Independence</title>
+      <section id="strayersources3ehs-ch22-sec2-001" folder="false" filename="strayersources3ehs_ch22_5.html" dlapFilename="strayersources3ehs_ch22_5_dlap.xml" numquestions="0">
+        <title>The End of Empire in World History</title>
+      </section>
+      <section id="strayersources3ehs-ch22-sec2-002" folder="false" filename="strayersources3ehs_ch22_6.html" dlapFilename="strayersources3ehs_ch22_6_dlap.xml" numquestions="0">
+        <title>Explaining African and Asian Independence</title>
+      </section>
+    </section>
+    <section id="strayersources3ehs-ch22-sec1-002" folder="true" filename="strayersources3ehs_ch22_7.html" dlapFilename="strayersources3ehs_ch22_7_dlap.xml" numquestions="0">
+      <title>Comparing Freedom Struggles</title>
+      <section id="strayersources3ehs-ch22-sec2-003" folder="false" filename="strayersources3ehs_ch22_8.html" dlapFilename="strayersources3ehs_ch22_8_dlap.xml" numquestions="0">
+        <title>The Case of India: Ending British Rule</title>
+      </section>
+      <section id="strayersources3ehs-ch22-sec2-004" folder="false" filename="strayersources3ehs_ch22_9.html" dlapFilename="strayersources3ehs_ch22_9_dlap.xml" numquestions="0">
+        <title>The Case of South Africa: Ending Apartheid</title>
+      </section>
+      <section title="ZOOMING IN: Abdul Ghaffar Khan, Muslim Pacifist" id="strayersources3ehs-ch22-bx3-001" folder="false" filename="strayersources3ehs_ch22_10.html" dlapFilename="strayersources3ehs_ch22_10_dlap.xml" numquestions="0"/>
+    </section>
+    <section id="strayersources3ehs-ch22-sec1-003" folder="true" filename="strayersources3ehs_ch22_11.html" dlapFilename="strayersources3ehs_ch22_11_dlap.xml" numquestions="0">
+      <title>Experiments with Freedom</title>
+      <section id="strayersources3ehs-ch22-sec2-005" folder="false" filename="strayersources3ehs_ch22_12.html" dlapFilename="strayersources3ehs_ch22_12_dlap.xml" numquestions="0">
+        <title>Experiments in Political Order: Party, Army, and the Fate of Democracy</title>
+      </section>
+      <section id="strayersources3ehs-ch22-sec2-006" folder="false" filename="strayersources3ehs_ch22_13.html" dlapFilename="strayersources3ehs_ch22_13_dlap.xml" numquestions="0">
+        <title>Experiments in Economic Development: Changing Priorities, Varying Outcomes</title>
+      </section>
+      <section id="strayersources3ehs-ch22-sec2-007" folder="false" filename="strayersources3ehs_ch22_14.html" dlapFilename="strayersources3ehs_ch22_14_dlap.xml" numquestions="0">
+        <title>Experiments with Culture: The Role of Islam in Turkey and Iran</title>
+      </section>
+      <section title="ZOOMING IN: Mozambique: Civil War and Reconciliation" id="strayersources3ehs-ch22-bx3-002" folder="false" filename="strayersources3ehs_ch22_15.html" dlapFilename="strayersources3ehs_ch22_15_dlap.xml" numquestions="0"/>
+      <section title="Another Voice with Eric Nelson for Chapter 22" id="strayersources3ehs-ch22-section-1" folder="false" filename="strayersources3ehs_ch22_16.html" dlapFilename="strayersources3ehs_ch22_16_dlap.xml" numquestions="0"/>
+    </section>
+    <section id="strayersources3ehs-ch22-sec1-004" folder="false" filename="strayersources3ehs_ch22_17.html" dlapFilename="strayersources3ehs_ch22_17_dlap.xml" numquestions="0">
+      <title>REFLECTIONS: History in the Middle of the Stream</title>
+    </section>
+    <section id="strayersources3ehs-ch22-sec2-008" folder="false" filename="strayersources3ehs_ch22_18.html" dlapFilename="strayersources3ehs_ch22_18_dlap.xml" numquestions="0">
+      <title>What&#x2019;s the Significance?</title>
+    </section>
+    <section id="strayersources3ehs-ch22-sec2-009" folder="false" filename="strayersources3ehs_ch22_19.html" dlapFilename="strayersources3ehs_ch22_19_dlap.xml" numquestions="0">
+      <title>Big Picture Questions</title>
+    </section>
+    <section id="strayersources3ehs-ch22-sec1-006" folder="false" filename="strayersources3ehs_ch22_20.html" dlapFilename="strayersources3ehs_ch22_20_dlap.xml" numquestions="0">
+      <title>Next Steps: For Further Study</title>
+    </section>
+  </manuscript>
+</manifest>

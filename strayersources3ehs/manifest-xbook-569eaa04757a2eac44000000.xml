@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<manifest id="strayersources3ehs">
+  <manuscript id="569eaa04757a2eac44000000" title="PART ONE: FIRST THINGS FIRST" question-delivery-method="ARGA">
+    <section title="PART ONE: FIRST THINGS FIRST" id="strayersources3ehs-pt01-sec1-001a" folder="false" filename="strayersources3ehs_pt1_1.html" dlapFilename="strayersources3ehs_pt1_1_dlap.xml" numquestions="0"/>
+    <section id="strayersources3ehs-pt01-sec1-001" folder="false" filename="strayersources3ehs_pt1_2.html" dlapFilename="strayersources3ehs_pt1_2_dlap.xml" numquestions="0">
+      <title>THE BIG PICTURE: TURNING POINTS IN EARLY WORLD HISTORY</title>
+    </section>
+    <section id="strayersources3ehs-pt01-sec2-001" folder="false" filename="strayersources3ehs_pt1_3.html" dlapFilename="strayersources3ehs_pt1_3_dlap.xml" numquestions="0">
+      <title>The Emergence of Humankind</title>
+    </section>
+    <section id="strayersources3ehs-pt01-sec2-002" folder="false" filename="strayersources3ehs_pt1_4.html" dlapFilename="strayersources3ehs_pt1_4_dlap.xml" numquestions="0">
+      <title>The Globalization of Humankind</title>
+    </section>
+    <section id="strayersources3ehs-pt01-sec2-003" folder="false" filename="strayersources3ehs_pt1_5.html" dlapFilename="strayersources3ehs_pt1_5_dlap.xml" numquestions="0">
+      <title>The Revolution of Farming and Herding</title>
+    </section>
+    <section id="strayersources3ehs-pt01-sec2-004" folder="false" filename="strayersources3ehs_pt1_6.html" dlapFilename="strayersources3ehs_pt1_6_dlap.xml" numquestions="0">
+      <title>The Turning Point of Civilization</title>
+    </section>
+    <section id="strayersources3ehs-pt01-sec2-005" folder="false" filename="strayersources3ehs_pt1_7.html" dlapFilename="strayersources3ehs_pt1_7_dlap.xml" numquestions="0">
+      <title>Time and World History</title>
+    </section>
+    <section id="strayersources3ehs-ch201-section-1" folder="false" filename="strayersources3ehs_pt1_8.html" dlapFilename="strayersources3ehs_pt1_8_dlap.xml" numquestions="0">
+      <title>Landmarks in World History, to ca. 600 B.C.E.</title>
+    </section>
+    <section id="strayersources3ehs-pt01-sec1-002" folder="false" filename="strayersources3ehs_pt1_9.html" dlapFilename="strayersources3ehs_pt1_9_dlap.xml" numquestions="0">
+      <title>UNDERSTANDING AP<sup>&#xAE;</sup> THEMES IN PART ONE</title>
+    </section>
+  </manuscript>
+</manifest>

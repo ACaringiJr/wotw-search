@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<manifest id="strayersources3ehs">
+  <manuscript id="569e9965757a2ef83e000000" title="Prologue: From Cosmic History to Human History" question-delivery-method="ARGA">
+    <section id="strayersources3ehs-fm01-sec1-012" folder="true" filename="strayersources3ehs_ch102_1.html" dlapFilename="strayersources3ehs_ch102_1_dlap.xml" numquestions="0">
+      <title>Prologue: From Cosmic History to Human History</title>
+      <section id="strayersources3ehs-fm01-sec1-013" folder="false" filename="strayersources3ehs_ch102_2.html" dlapFilename="strayersources3ehs_ch102_2_dlap.xml" numquestions="0">
+        <title>The History of the Universe</title>
+      </section>
+      <section id="strayersources3ehs-fm01-sec1-014" folder="false" filename="strayersources3ehs_ch102_3.html" dlapFilename="strayersources3ehs_ch102_3_dlap.xml" numquestions="0">
+        <title>The History of a Planet</title>
+      </section>
+      <section id="strayersources3ehs-fm01-sec1-015" folder="false" filename="strayersources3ehs_ch102_4.html" dlapFilename="strayersources3ehs_ch102_4_dlap.xml" numquestions="0">
+        <title>The History of the Human Species &#x2026; in a Single Paragraph</title>
+      </section>
+      <section id="strayersources3ehs-fm01-sec1-016" folder="false" filename="strayersources3ehs_ch102_5.html" dlapFilename="strayersources3ehs_ch102_5_dlap.xml" numquestions="0">
+        <title>Why World History?</title>
+      </section>
+      <section id="strayersources3ehs-fm01-sec1-017" folder="false" filename="strayersources3ehs_ch102_6.html" dlapFilename="strayersources3ehs_ch102_6_dlap.xml" numquestions="0">
+        <title>Change, Comparison, and Connection: The Three Cs of World History</title>
+      </section>
+      <section id="strayersources3ehs-ch102-section-1" folder="false" filename="strayersources3ehs_ch102_7.html" dlapFilename="strayersources3ehs_ch102_7_dlap.xml" numquestions="0">
+        <title>SNAPSHOT: The History of the Universe as a Cosmic Calendar</title>
+      </section>
+      <section id="strayersources3ehs-fm01-sec1-018" folder="false" filename="strayersources3ehs_ch102_8.html" dlapFilename="strayersources3ehs_ch102_8_dlap.xml" numquestions="0">
+        <title>Review</title>
+      </section>
+    </section>
+  </manuscript>
+</manifest>

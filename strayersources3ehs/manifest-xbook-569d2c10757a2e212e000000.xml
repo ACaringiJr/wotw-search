@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<manifest id="strayersources3ehs">
+  <manuscript id="569d2c10757a2e212e000000" title="Preface" question-delivery-method="ARGA" number="101">
+    <section id="strayersources3ehs-fm01-sec1-002" folder="false" filename="strayersources3ehs_ch101_1.html" dlapFilename="strayersources3ehs_ch101_1_dlap.xml" numquestions="0">
+      <title>About the Authors</title>
+    </section>
+    <section id="strayersources3ehs-fm01-sec1-019" folder="false" filename="strayersources3ehs_ch101_2.html" dlapFilename="strayersources3ehs_ch101_2_dlap.xml" numquestions="0">
+      <title>To the Student</title>
+    </section>
+    <section id="strayersources3ehs-fm01-sec1-020" folder="false" filename="strayersources3ehs_ch101_3.html" dlapFilename="strayersources3ehs_ch101_3_dlap.xml" numquestions="0">
+      <title>How to Get the Most from This Program</title>
+    </section>
+    <section id="strayersources3ehs-fm01-sec1-008" folder="true" filename="strayersources3ehs_ch101_4.html" dlapFilename="strayersources3ehs_ch101_4_dlap.xml" numquestions="0">
+      <title>Working with Evidence</title>
+      <section id="strayersources3ehs-fm01-sec1-009" folder="false" filename="strayersources3ehs_ch101_5.html" dlapFilename="strayersources3ehs_ch101_5_dlap.xml" numquestions="0">
+        <title>Working with Written Sources</title>
+      </section>
+      <section id="strayersources3ehs-fm01-sec1-010" folder="false" filename="strayersources3ehs_ch101_6.html" dlapFilename="strayersources3ehs_ch101_6_dlap.xml" numquestions="0">
+        <title>Working with Visual Sources</title>
+      </section>
+    </section>
+    <section id="strayersources3ehs-fm01-sec1-021" folder="false" filename="strayersources3ehs_ch101_7.html" dlapFilename="strayersources3ehs_ch101_7_dlap.xml" numquestions="0">
+      <title>AP<sup>&#xAE;</sup> Historical Thinking Skills</title>
+    </section>
+  </manuscript>
+</manifest>

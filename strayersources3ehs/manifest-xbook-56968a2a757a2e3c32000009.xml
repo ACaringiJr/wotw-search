@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<manifest id="strayersources3ehs">
+  <manuscript id="56968a2a757a2e3c32000009" title="16. Atlantic Revolutions, Global Echoes" question-delivery-method="ARGA" number="16">
+    <section title="Author Preview Video with Robert Strayer for Chapter 16" id="strayersources3ehs_ch16_authprev" folder="false" filename="strayersources3ehs_ch16_1.html" dlapFilename="strayersources3ehs_ch16_1_dlap.xml" numquestions="0"/>
+    <section title="Introduction to Chapter 16" id="strayersources3ehs-ch16-sec1-1" folder="false" filename="strayersources3ehs_ch16_2.html" dlapFilename="strayersources3ehs_ch16_2_dlap.xml" numquestions="0"/>
+    <section title="Guided Reading Exercise for Chapter 16" id="strayersources3ehs_ch16_gre" folder="false" filename="strayersources3ehs_ch16_3.html" dlapFilename="strayersources3ehs_ch16_3_dlap.xml" numquestions="0"/>
+    <section id="strayersources3ehs-ch16-sec1-001" folder="false" filename="strayersources3ehs_ch16_4.html" dlapFilename="strayersources3ehs_ch16_4_dlap.xml" numquestions="0">
+      <title>Atlantic Revolutions in a Global Context</title>
+    </section>
+    <section id="strayersources3ehs-ch16-sec1-002" folder="true" filename="strayersources3ehs_ch16_5.html" dlapFilename="strayersources3ehs_ch16_5_dlap.xml" numquestions="0">
+      <title>Comparing Atlantic Revolutions</title>
+      <section id="strayersources3ehs-ch16-sec2-001" folder="false" filename="strayersources3ehs_ch16_6.html" dlapFilename="strayersources3ehs_ch16_6_dlap.xml" numquestions="0">
+        <title>The North American Revolution, 1775&#x2013;1787</title>
+      </section>
+      <section id="strayersources3ehs-ch16-sec2-002" folder="false" filename="strayersources3ehs_ch16_7.html" dlapFilename="strayersources3ehs_ch16_7_dlap.xml" numquestions="0">
+        <title>The French Revolution, 1789&#x2013;1815</title>
+      </section>
+      <section id="strayersources3ehs-ch16-sec2-003" folder="false" filename="strayersources3ehs_ch16_8.html" dlapFilename="strayersources3ehs_ch16_8_dlap.xml" numquestions="0">
+        <title>The Haitian Revolution, 1791&#x2013;1804</title>
+      </section>
+      <section id="strayersources3ehs-ch16-sec2-004" folder="false" filename="strayersources3ehs_ch16_9.html" dlapFilename="strayersources3ehs_ch16_9_dlap.xml" numquestions="0">
+        <title>Spanish American Revolutions, 1808&#x2013;1825</title>
+      </section>
+    </section>
+    <section id="strayersources3ehs-ch16-sec1-003" folder="true" filename="strayersources3ehs_ch16_10.html" dlapFilename="strayersources3ehs_ch16_10_dlap.xml" numquestions="0">
+      <title>Echoes of Revolution</title>
+      <section id="strayersources3ehs-ch16-sec2-005" folder="false" filename="strayersources3ehs_ch16_11.html" dlapFilename="strayersources3ehs_ch16_11_dlap.xml" numquestions="0">
+        <title>The Abolition of Slavery</title>
+      </section>
+      <section title="ZOOMING IN: The Russian Decembrist Revolt" id="strayersources3ehs-ch16-bx3-001" folder="false" filename="strayersources3ehs_ch16_12.html" dlapFilename="strayersources3ehs_ch16_12_dlap.xml" numquestions="0"/>
+      <section id="strayersources3ehs-ch16-sec2-006" folder="false" filename="strayersources3ehs_ch16_13.html" dlapFilename="strayersources3ehs_ch16_13_dlap.xml" numquestions="0">
+        <title>Nations and Nationalism</title>
+      </section>
+      <section id="strayersources3ehs-ch16-sec2-007" folder="false" filename="strayersources3ehs_ch16_14.html" dlapFilename="strayersources3ehs_ch16_14_dlap.xml" numquestions="0">
+        <title>Feminist Beginnings</title>
+      </section>
+      <section title="Another Voice with Eric Nelson for Chapter 16" id="strayersources3ehs-ch16-section-1" folder="false" filename="strayersources3ehs_ch16_15.html" dlapFilename="strayersources3ehs_ch16_15_dlap.xml" numquestions="0"/>
+      <section title="ZOOMING IN: Kartini: Feminism and Nationalism in Java" id="strayersources3ehs-ch16-bx3-002" folder="false" filename="strayersources3ehs_ch16_16.html" dlapFilename="strayersources3ehs_ch16_16_dlap.xml" numquestions="0"/>
+    </section>
+    <section id="strayersources3ehs-ch16-sec1-004" folder="false" filename="strayersources3ehs_ch16_17.html" dlapFilename="strayersources3ehs_ch16_17_dlap.xml" numquestions="0">
+      <title>REFLECTIONS: Revolutions: Pro and Con</title>
+    </section>
+    <section id="strayersources3ehs-ch16-sec2-008" folder="false" filename="strayersources3ehs_ch16_18.html" dlapFilename="strayersources3ehs_ch16_18_dlap.xml" numquestions="0">
+      <title>What&#x2019;s the Significance?</title>
+    </section>
+    <section id="strayersources3ehs-ch16-sec2-009" folder="false" filename="strayersources3ehs_ch16_19.html" dlapFilename="strayersources3ehs_ch16_19_dlap.xml" numquestions="0">
+      <title>Big Picture Questions</title>
+    </section>
+    <section id="strayersources3ehs-ch16-sec2-010" folder="false" filename="strayersources3ehs_ch16_20.html" dlapFilename="strayersources3ehs_ch16_20_dlap.xml" numquestions="0">
+      <title>Next Steps: For Further Study</title>
+    </section>
+  </manuscript>
+</manifest>

@@ -1,0 +1,1102 @@
+/******************************
+ *
+ * Styles for manuscript blocks. PW: as of 9/21/2011, the styles here should
+ * should be defined from the perspective of the preview view; manuscript-editor
+ * can then be used to "correct" or add things needed for the editor view
+ *
+ ******************************/
+
+/* overwrites of jquery-ui styles */
+
+/* base font size and color -- some fonts will be scaled from here */
+body, #manuscript, .ui-widget, .ui-widget-content {
+	font-size:14px;
+	color:#222;
+}
+
+body {
+	margin:10px;
+}
+
+/* link color */
+a, a:hover, a:visited, a:active, .ui-widget-content a {
+	color: #003;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+a:hover {
+	text-decoration:underline;
+}
+
+[data-type=link] {
+	color:#003;
+	font-weight:bold;
+	cursor:pointer;
+}
+
+[data-type=link]:hover {
+	text-decoration:underline;
+}
+
+/* font family */
+body, #manuscript, .ui-widget, .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { 
+	font-family: Arial, Verdana, Arial, sans-serif; 
+}
+
+/* border color for the entire activity, the tab banner, tabs, and buttons */
+/* This should be dark */
+.ui-widget-content, .ui-widget-header, .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus, .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+	border: 1px solid #009;
+}
+
+/* text color of buttons and tabs */
+/* Suggestion: use the same color as the border */
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited, .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus, .ui-state-hover a, .ui-state-hover a:hover, .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+	color:#009;
+}
+
+/* background color of normal state for buttons and inactive tabs */
+/* Suggestion: use a very light version of the border */
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	background-color:#bdbdff;
+}
+
+/* background color of hover state for buttons and tabs */
+/* Suggestion: use something darker than the normal state, but still light */
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+	background:#a3a9ff;
+}
+
+/* background color of active state for buttons and tabs */
+/* Suggestion: use white */
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+	background:#fff;
+}
+
+/* banner for tabs and such like */
+/* Suggestion: Use border color and hover state color */
+.ui-widget-header {
+	border: 1px solid #009;
+	background-color:#099;	/* if the gradient below doesn't work */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bdbdff', endColorstr='#009'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#a3a9ff), to(#6b6bff)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #bdbdff,  #009); /* for firefox 3.6+ */ 
+}
+
+/* end of jquery-ui overwrites */
+
+
+/* Other commonly-changed colors/styles */
+[data-type=question] {
+    border-left:5px solid #009;
+}
+
+[data-type=question] h3 {
+	color:#009;
+}
+
+.question_feedback {
+	border-top:2px solid #009; 
+}
+
+.question_feedback_head {
+	color:#009;
+}
+
+#manuscript {
+    min-width: 600px;
+    margin:10px;
+    display:block;
+}
+
+/* chapter title */
+h1 {
+	position:static;
+	width:auto;
+	height:auto;
+	color:#000;
+	margin-top:.5em;
+	display:block;
+}
+
+/* section title: no top-margin */
+h2 {
+	margin-top:0;
+	display:block;
+}
+
+/* Other titles: visible by default */
+h3 {
+	display:block;
+	margin-top:0;
+}
+
+/* Chapter */
+[data-type=chapter] {
+
+}
+
+/* Section */
+[data-type=section] {
+	width:600px;
+    clear: both;
+    display:none;	/* all sections are initially hidden */
+}
+
+/**
+ * Paragraph
+ */
+[data-type=paragraph] {
+    padding-bottom: 1px; /* makes the p's margin push the bottom down. */
+}
+
+/**
+ * Rawhtml
+ */
+[data-type=rawhtml] {
+    margin-bottom:1em;
+}
+
+/* Metadata and Glossary: hidden */
+[data-type=metadata], [data-type=glossary] {
+	display:none;
+}
+
+[data-type=termref] {
+	color:#060;
+	font-weight:bold;
+	cursor:pointer;
+}
+
+/**
+ * Questions -- some styles are defined at top in the commonly-changed section
+ */
+[data-type=question] {
+	margin:15px 0 15px 0;
+    padding:5px 0 5px 10px;
+	display:block;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    border-radius: 10px;
+}
+
+[data-type=question] h3 {
+	font-weight:bold;
+}
+
+/**
+ * Queries
+ */
+
+[data-type=query_display] {
+	/*background-color:#fcc;*/
+}
+
+/* don't show query_display spans in questions */ 
+[data-type=question] [data-type=query_display] {
+	display:none;
+}
+
+[data-type=query] {
+	display:none;
+}
+
+.query_text {
+	
+}
+
+.query_correct_feedback_span {
+	display:inline-block;
+	width:21px;
+	height:16px;
+	background:url(images/query_correct.gif) center right no-repeat;
+}
+
+.query_incorrect_feedback_span {
+	display:inline-block;
+	width:21px;
+	height:16px;
+	background:url(images/query_incorrect.gif) center right no-repeat;
+}
+
+.query_correct_incorrect_icon {
+	border:0px;
+	margin-left:5px;
+	vertical-align:middle;
+}
+
+.query_correct_answer_span {
+	color:#060;
+	border:1px solid #060;
+	padding:0px 2px 1px 2px;
+	margin-left:5px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -khtml-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.query_fb_input {
+	font-size:12px;
+	font-weight:bold;
+}
+
+.query_dd_select {
+	font-family:Verdana,sans-serif;
+	font-size:12px
+}
+
+.query_dd_select_span {
+	white-space:nowrap;
+}
+
+.query_mc_choice_table td {
+	border:0px solid black;
+	padding:0px 0px 3px 5px;
+	vertical-align:top;
+}
+
+.query_mc_choice_table label {
+	padding:0px;
+	margin:0px;
+	font-weight:normal;
+}
+
+.query_mc_choice_radio {
+	margin:1px 2px !important;
+}
+
+.query_mc_correct_choice {
+	border:2px solid #090;
+	/*background-color:#9f9;*/
+}
+
+.query_mc_incorrect_user_choice {
+	border:2px solid #900;
+	/*background-color:#f99;*/
+}
+
+.query_mc_other_choice {
+	border:2px solid transparent;
+}
+
+.query_mc_correct_choice, .query_mc_incorrect_user_choice {
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.query_mc_feedback_correct_incorrect {
+	margin-top:5px;
+	font-style:italic;
+}
+
+.query_essay_ta {
+	font-family:Verdana, sans-serif;
+	font-size:12px;
+	width:450px;
+	height:150px;
+}
+
+.essay_question_evaulation_feedback {
+	margin-top:5px;
+	font-style:italic;
+}
+
+/* "matching" query styles */
+
+.query_matching_table_div {
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -khtml-border-radius: 8px;
+	border-radius: 8px;
+	border:1px solid black;
+	background-color:#f3f3f3;
+	display:inline-block;
+}
+
+.query_matching_table {
+	border-collapse:collapse;
+	border:0px solid black;
+}
+
+.query_matching_table_td_left, .query_matching_table_td_right {
+	padding:0;
+	border:0px;
+	vertical-align:middle;
+}
+
+.query_matching_table_td_left {
+	border-right:1px solid black;
+}
+
+.query_matching_item {
+	border: 2px solid #999;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -khtml-border-radius: 8px;
+	border-radius: 8px;
+	padding:10px;
+	margin:10px 10px;
+	background-color:#fff;
+	text-align:center;
+	position:relative;
+}
+
+.query_matching_table_td_left .query_matching_item.chosen {
+	background-color:#ddf;
+}
+
+.query_matching_table_td_right .query_matching_item.incorrect {
+	border-color:#800;
+	background-color:#fee;
+}
+
+.query_matching_item.active {
+	border-color:#003;
+	cursor:pointer;
+}
+
+.query_matching_item.correct {
+	border-color:#060;
+	cursor:default;
+	background-color:#cfc;
+}
+
+.query_matching_table_td_correct {
+	border-top:1px solid black;
+	text-align:center;
+	padding:10px 0 0px 0;
+	font-weight:bold;
+	color:#060;
+}
+
+.query_matching_table_td_left_bottom, .query_matching_table_td_right_bottom {
+	
+}
+
+.query_matching_table .answered {
+	opacity:0.4;
+	filter:alpha(opacity=40);
+}
+
+.query_matching_arrow {
+	font-family:Verdana;
+	font-size:36px;
+	color:#090;
+	position:absolute;
+	right:-30px;
+	top:-10px;
+	z-index:5000;
+}
+
+/* Other query styles */
+.query_result {
+	margin-top:5px;
+    color: red;
+    font-weight: bold;
+}
+.query_correct_answer {
+	margin-top:5px;
+    font-weight: bold;
+    color: green;
+}
+
+.question_feedback {
+	margin-top:12px; 
+	margin-left:-10px;
+	padding-top:8px;
+	padding-left:10px;
+	position:relative;
+	/* hide question_feedback divs at start so they can be faded in */
+	display:none;
+}
+
+.question_feedback_head {
+	position:absolute;
+	top:-8px;
+	left:6px;
+	font-weight:bold;
+	font-size:10px;
+	background-color:#fff;
+	padding:0 4px;
+}
+
+.question_feedback_part {
+	margin-bottom:8px;
+}
+
+.question_action_div {
+	/*height:23px;*/
+	padding-top:5px;
+}
+
+.question_instructor_controls {
+	font-size:12px;
+	background-color:#fff;
+	float:right;
+	padding:0 0 5px 10px;
+}
+
+.student_responses_button {
+	font-weight:normal !important;
+}
+
+.student_responses_button .ui-button-text {
+	font-size:9px;
+	text-align:center;
+}
+
+.points_awarded_div {
+	margin-top:5px;
+	font-size:80%;
+	font-style:italic;
+	height:23px;	/* try to make this the same height as the submit button, which it replaces */
+}
+
+/* icon */
+[data-type=icon] {
+	display:block;
+	float:right;
+	margin-right:-100px;
+}
+
+[data-type=icon] img {
+	max-width:64px;
+	max-height:64px;
+}
+
+/**
+ * Figure
+ * -- a <div> or <a>
+ */
+[data-type=figure], [data-type=table] {
+  display: block;
+	border:1px solid #666;
+	padding:1em;
+	margin-bottom:1em;
+	background-color:#fff;
+	text-align:center;
+}
+[data-type=figure][data-layout-align=left], [data-type=table][data-layout-align=left] {
+    float: left;
+	margin-right:1em;
+}
+[data-type=figure][data-layout-align=right], [data-type=table][data-layout-align=right] {
+    float: right;
+	margin-left:1em;
+	margin-right:-180px;
+}
+
+[data-layout-align=center] img {
+    display: block;
+    margin: 0 auto;
+}
+
+[data-type=figure][data-layout-width=small], [data-type=table][data-layout-width=small] {
+	width:200px;
+}
+
+[data-layout-width=small] img {
+	max-width:200px;
+}
+
+[data-type=figure][data-layout-width=medium], [data-type=table][data-layout-width=medium] {
+	width:350px;
+}
+
+[data-layout-width=medium] img {
+	max-width:350px;
+}
+
+[data-type=figure][data-layout-width=large], [data-type=table][data-layout-width=large] {
+	width:500px;
+}
+
+[data-layout-width=large] img {
+	max-width:500px;
+}
+
+/* why did I think xlarge figures must be float?? */
+[data-type=figure][data-layout-width=xlarge], [data-type=table][data-layout-width=xlarge] {
+	margin-left:0;
+	margin-right:0;
+	width:685px;
+}
+
+/* but xlarge tables shouldn't be */
+[data-type=table][data-layout-width=xlarge] {
+	float:none;
+}
+
+[data-layout-width=xlarge] img {
+	/* no max-width for xlarge images? */
+	/*max-width:685px;*/
+}
+
+[data-type=figure][data-layout-border=false], [data-type=table][data-layout-border=false] {
+	border:none;
+	padding:0;
+	width:auto;
+	background-color:transparent;
+}
+
+/* in body.figure mode, always make the figures big and not floated */
+body.figure [data-type=figure], body.figure [data-type=table] {
+	float:none;
+	width:500px;
+	border:0px;
+}
+
+body.figure [data-type=figure] img {
+	max-width:500px;
+}
+
+/**
+ * Figure and table text, including captions
+ */
+[data-type=figure_text], [data-type=table_text] {
+	margin-top:5px;
+	text-align:left;
+	color:#333;
+}
+[data-type=figure_text] [data-type=number], [data-type=table_text] [data-type=number] {
+    color: #6666ff;
+    font-weight:bold;
+}
+
+/* asset (figure, table, etc.) source */
+[data-type=asset_source] {
+	color:#999;
+	font-style:italic;
+	font-size:.9em;
+	text-align:left;
+}
+
+/* Tables */
+[data-type=table] table {
+	border-collapse:collapse;
+    background-color:#fff;
+}
+
+[data-type=table] td {
+	border: 1px solid black;
+	padding:2px;
+	vertical-align:middle;
+}
+
+[data-type=table] th {
+	font-weight:bold;
+	border: 1px solid black;
+	padding:2px;
+	vertical-align:bottom;
+	background-color:#ccf;
+}
+
+[data-type=table] .title_cell {
+	background-color:#006;
+	color:#fff;
+}
+
+/* special table cell_class's */
+[data-cell_class=nobr] {
+	white-space:nowrap;
+}
+
+/* hide table definition */
+[data-block_type=table_definition] {
+	display:none;
+}
+/**
+ * Reference -- we should probably keep the color consistent with links
+ * Note that cursor will be set to "pointer" if player makes a ref clickable
+ */
+[data-type=ref] {
+	font-weight:bold;
+	color:#003;
+}
+
+/* block types */
+[data-block_type=clear_both] {
+	clear:both;
+}
+
+[data-type=box][data-block_type=clear_both] {
+	/* for boxes, no visible style other than clear:both */
+	border-width:0px;
+	padding:0px;
+	background-color:#fff;
+	margin-bottom:0px;
+}
+
+[data-block_type=supplemental] {
+	display:none;
+}
+
+[data-block_type=margin_text] {
+    float: right;
+	margin-left:1em;
+	margin-right:-100px;
+	width:250px;
+	border:1px solid black;
+	padding:5px;
+	background-color:#ccf;
+}
+[data-block_type=margin_text] p {
+	margin:0px;
+}
+
+[data-block_type=margin_quote] {
+    float: right;
+	margin-left:1em;
+	margin-right:-100px;
+	width:250px;
+	border:1px solid black;
+	padding:5px;
+	background-color:#ccf;
+}
+[data-block_type=margin_quote_speaker] p {
+	margin:0px;
+	text-align:right;
+    font-style: italic;
+}
+
+[data-block_type=quote] {
+	margin-left:30px;
+	margin-right:30px;
+}
+
+[data-block_type=subtitle] {
+	font-weight:bold;
+	font-size:120%;
+	border-top:1px solid #999;
+	padding-top:.5em;
+}
+
+[data-block_type=equation] {
+	margin-left:30px;
+	margin-right:30px;
+	margin-bottom:10px;
+	margin-top:10px;
+	border-left:5px solid #c4d79f;
+	padding-left:20px;
+}
+
+/* paragraphs added by MPS to mark page starts */
+[data-block_type=page_start] {
+	display:none;
+}
+
+/* onclick "show" items are initially hidden */
+[data-onclick=show] {
+	display:none;
+}
+
+/* boxes */
+[data-type=box] h3 {
+	font-weight:bold;
+	font-size:120%;
+	margin-bottom:15px;
+	margin-top:0px;
+}
+[data-type=box] {
+	border:2px solid black;
+	padding:10px 10px 0 10px;
+	background-color:#efefef;
+	margin-bottom:1em;
+}
+
+/* question_sequence and question_pool boxes shouldn't have any markings */
+[data-block_type=question_sequence], [data-block_type=question_pool] {
+	border:0px;
+	padding:0px;
+	background-color:inherit;
+	margin-bottom:0px;
+}
+
+/* and their headings shouldn't be shown */
+[data-block_type=question_sequence] h3[data-for_type=box], [data-block_type=question_pool] h3[data-for_type=box] {
+	display:none;
+}
+
+/* one-at-a-time question sequences do have markings and can have headings, though */
+[data-block_type=question_sequence_one_at_a_time] {
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -khtml-border-radius: 15px;
+    border-radius: 15px;
+    background-color:#fff;
+}
+[data-block_type=question_sequence_one_at_a_time] [data-type=question] {
+	border-left-width:0px;
+}
+
+/* navigator for the question sequence */
+.question_sequence_navigator {
+	float:right;
+	padding:0 0 5px 5px;
+	font-size:.8em;
+	font-weight:bold;
+	color:#666;
+	background-color:#fff;
+}
+
+/* put query_text for one-at-a-time questions in a rounded border */
+[data-block_type=question_sequence_one_at_a_time] .query_text { 
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    border-radius: 6px;
+	border:1px solid #666;
+	padding:5px;
+}
+
+.question_sequence_closing_material {
+	display:none;
+}
+
+.question_sequence_review {
+	margin:10px 0;
+	padding-top:10px;
+	border-top:2px solid #000;
+	display:none;
+}
+
+.question_sequence_review_button {
+	padding-top:5px;
+	padding-bottom:10px;
+}
+
+[data-block_type=imagemap_questions] {
+	border:0px;
+	padding:0px;
+	background-color:inherit;
+	margin-bottom:0px;
+}
+
+/* and their headings shouldn't be shown */
+[data-block_type=imagemap_questions] h3[data-for_type=box] {
+	display:none;
+}
+
+/* variables */
+[data-type=variable] {
+	color:#900;
+}
+
+[data-type=moreinfo_link] {
+	cursor:pointer;
+}
+
+[data-block_type=moreinfo] {
+	display:none;
+	padding-left:10px;
+	color:#226;
+}
+
+[data-type=imchoice] {
+	display:none;
+}
+
+/* TOC: not really used anymore; should we remove this?? */
+#toc {
+	display:none;
+	
+	position:fixed;
+	top:0px;
+	left:10px;
+    width: 220px;
+    background-color:#fff;
+    padding:0 5px;
+}
+
+#toc .number {
+    display: block;
+    float: left;
+}
+
+#toc a {
+    display: block;
+    margin-left: 12px;
+    text-decoration: none;
+}
+#toc a:hover {
+    text-decoration: underline;
+}
+#toc a.active {
+    background-color:#ccc;
+}
+#toc ul ul a {
+    margin-left: 24px;
+}
+
+#toc ul {
+    margin-left: 0;
+    padding-left: 0;
+    list-style: none;
+}
+#toc ul ul {
+    margin-top: 0.5em;
+}
+
+#toc li {
+    padding: 1px 3px;
+    overflow: hidden;
+    line-height: 12px;
+    font-size:11px;
+}
+
+#toc ul ul li {
+    padding-left: 12px;
+}
+
+/* standard player elements */
+#section_navigation {
+	display:none;
+	position:fixed;
+	left:790px;		/* width of section + right margin of figure - width of element */
+	font-size:24px;
+	font-weight:bold;
+	padding-left:10px;
+	background-color:#ccf;
+	border:1px solid black;
+	padding:5px;
+	padding-top:0px;
+}
+
+/* jquery.simplemodal */
+/* Overlay */
+#simplemodal-overlay {
+	background-color:#000;
+	cursor:wait;
+}
+
+/* Container */
+#simplemodal-container {
+	height:360px;
+	width:600px;
+	color:#000;
+	background-color:#fff;
+	border:4px solid #444;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -khtml-border-radius: 12px;
+    border-radius: 12px;
+	padding:12px;
+}
+#simplemodal-container .simplemodal-data {
+	padding:8px;
+}
+#simplemodal-container code {
+	background:#141414;
+	border-left:3px solid #65B43D;
+	color:#bbb;
+	display:block;
+	font-size:12px;
+	margin-bottom:12px;
+	padding:4px 6px 6px;
+}
+#simplemodal-container a {
+	color:#ddd;
+}
+#simplemodal-container a.modalCloseImg {
+	background:url(images/simple_modal_x.png) no-repeat;
+	width:25px;
+	height:29px;
+	display:inline;
+	z-index:3200;
+	position:absolute;
+	top:-15px;
+	right:-16px;
+	cursor:pointer;
+}
+#simplemodal-container h3 {
+	color:#84b8d9;
+}
+
+/* Simple buttons */
+/*
+.button_wrapper {
+	margin:15px 0;
+}
+
+.button {
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    border-radius: 8px;
+    border: 2px solid #393;
+	background-color:#cfc;
+	font-size:14px;
+	font-weight:bold;
+	padding:5px;
+	margin-left:5px;
+	float:left;
+	cursor:pointer;
+}
+*/
+
+.button.alt_color {
+	background-color:#fcc;
+	border-color:#933;
+}
+
+.button_dimmed {
+	opacity:0.6;
+	filter:alpha(opacity=60);
+}
+
+
+
+/* Imagemap query type styles */
+[data-type=imchoice] {
+	display:none;
+}
+
+.im-rounded-top {
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius-topright: 10px;
+    border-top-right-radius: 10px;
+
+    -webkit-border-top-left-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    border-top-left-radius: 10px;
+    }
+.im-rounded-bottom  {
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-radius-bottomright: 10px;
+    border-bottom-right-radius: 10px;
+
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    border-bottom-left-radius: 10px;
+    }
+
+/* Image Maps */
+.pic_container {
+    position: relative;
+    }
+.pic_container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    }
+.pic_container canvas {
+    position: absolute;
+    opacity: 1;
+    top:0;
+    left:0;
+    }
+
+.pic_container { display: block; outline: none; position:relative}
+.pic_container img,
+area,
+area:hover {
+    cursor: pointer;
+    }
+.activity-info-bar {
+    padding: 0 13px;
+    color: #AAAAAA;
+    }
+.status-collapsed {
+    display: none;
+    position: absolute;
+    right:-20px;
+    border: 1px solid #606060;
+    background-color:#606060;
+    -webkit-border-radius: 3px; 
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	padding:1px;
+    }
+.status-collapsed .icon {
+    display: block;
+    width: 17px;
+    height: 16px;
+    background: transparent url(images/status-modal-sprite.png) no-repeat -16px -1px;
+    }
+.status-collapsed.disabled .icon { background-position: 1000px 1000px; }
+
+.status-modal {
+	display:none;
+    width: 250px;
+    position: absolute;
+    /*top: 10px;*/
+    right: 10px;
+    font-size:12px;
+    -webkit-box-shadow: 0px 0px 1em #000000;
+    -moz-box-shadow: 0px 0px 1em #000000;
+    box-shadow: 0px 0px 1em #000000;
+    z-index: 100;
+    text-align:left;
+    }
+.status-modal .modal-body {
+    background: #A0A0A0;
+    padding: 0 10px;
+    }
+.status-modal.correct .modal-body {    
+    background: #3CC467;
+    }
+.status-modal.incorrect .modal-body {
+    background: #F79191;
+    }
+.status-modal .title-bar {
+    background-color: #606060;
+    color: #AAAAAA;
+    padding: 5px 10px;
+    position: relative;
+    cursor: move;
+    }
+.status-modal.flash .modal-body {
+    background-color: #AAAAAA;
+    }
+.status-modal .title-bar .close {
+    display: block;
+    position: absolute;
+    top: 0.5em;
+    right: 1em;
+    width: 17px;
+    height: 17px;
+    background: transparent url(images/status-modal-sprite.png) no-repeat 0 0;
+    outline: none;
+    }
+.status-modal .title-bar .close:hover {
+    background-position: 0 -17px;
+    }
+.status-modal .choice-description { display: none}
+.status-modal.correct .choice-description,
+.status-modal.incorrect .choice-description { display: block; }
+.status-modal .choice-description p { margin: 0 0 10px 0;}
+
+.status-modal .show-selected-choices-wrapper {
+	padding-bottom:10px;
+}
+.status-modal .show-selected-choices-wrapper label {
+	font-size:.9em;
+	font-style:italic;
+    position: relative;
+    padding: 0 0 0 20px;
+    }
+.status-modal .show-selected-choices-wrapper label input {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    }
+.status_modal_header {
+	margin:0;
+	padding: 5px 0 10px 0;
+	font-weight:bold;
+	font-size:1.1em;
+}
+.xref_link{
+	background-color: #ffffcc;
+	color: #009;
+	font-weight: bold;
+	cursor: pointer;
+}
+.xref_highlighted{
+	border: 1px solid #f99;
+}

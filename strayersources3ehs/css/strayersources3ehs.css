@@ -1,0 +1,976 @@
+/*
+Book ID: theguide11e
+=================
+0. Reset CSS
+
+1. Elements
+- 1.1: Paragraphs
+- 1.2: Spans
+- 1.3: Links
+- 1.4: Figures
+- 1.5: Lists
+- 1.6: Boxes
+- 1.7: Tables
+- 1.8: Questions
+- 1.9: Print Page Numbers
+- 1.10: HRs
+
+2. Sections
+- 2.1: Intro
+- 2.2: A Heads
+- 2.3: B Heads
+- 2.4: Zooming In
+- 2.5: Reflections
+- 2.6: Chapter Review
+- 2.7: AP Practice Exam
+- 2.8: About the Authors
+- 2.9: Preface
+- 2.10: FM WWE AHead
+- 2.11: FM WWE BHead
+- 2.12: AP Historical Thinking Skills
+- 2.13: Part Intros
+- 2.14: Part: Big Picture
+- 2.15: Part B Head
+- 2.16: Credits/Notes
+
+=================
+*/
+
+/*** 
+=  0 — Reset CSS 
+***/
+p {
+    line-height: 1.5;
+    text-indent: 1.75em;
+    margin-bottom: 0;
+}
+[data-type="box"] {
+	border: none;
+	padding: 0;
+	background-color: transparent;
+	margin: 1em 0 0 0;
+}
+[data-type="table"] {
+	border: none;
+    background: transparent;
+}
+[data-type="table"] table {
+	border: none;
+    background: transparent;
+}
+[data-type="table"] td {
+	border: none;
+	padding: 5px 10px;
+	text-align: left;
+	vertical-align: top;
+}
+[data-type="table"] td p {
+	text-indent: 0;
+}
+
+/*** 
+=  1 — Elements 
+***/
+
+/** 1.1 Paragraphs **/
+/* paras with no indent */ 
+[data-block_type$="_ni"] p, [data-block_type$="-ni"] p, [data-block_type="cr-mcl"] p, li > [data-block_type="cr-nl"] p, [data-block_type="tb-txt"] p, li [data-block_type="bx-bl-first"] p, li [data-block_type="bx-bl-mid"] p, li [data-block_type="bx-bl-last"] p, [data-block_type="bk-cpy-nt"] p {
+	text-indent: 0;
+}
+/* paras with no indent and top margin */
+[data-block_type="txt_ni_tm"] p, [data-block_type="txt-ni-tm"] p, [data-block_type="bk-cpy-staff-tm"] p, [data-block_type="bk-cpy"] p {
+	text-indent: 0;
+	margin-top: 1em;
+}
+/* para with top margin */
+[data-block_type="txt-tm"] p {
+    margin-top: 1em;
+}
+/* boxed feature source paras */
+[data-block_type$="_sc"] p {
+	text-indent: 0;
+	font-size: .85em;
+	margin-top: 2em;
+	/*border-top: solid .1px;
+	padding-top: .5em;*/
+}
+/* Questions */
+[data-block_type="bx-que"] p {
+    text-indent: 0;
+    margin-top: 1em;
+    font-weight: bold;
+}
+/* Excerpts */
+[data-block_type="ext"] p, [data-block_type="ext-ni"] p, [data-block_type="bx-ext"] p {
+    text-indent: 0;
+    margin: 1em 0 1em 1.75em;
+}
+[data-block_type="vrs-first"] p, [data-block_type="bx-vrs-first"] p {
+    text-indent: 0;
+    margin: 1em 0 0 1.75em;
+}
+[data-block_type="vrs-mid"] p, [data-block_type="bx-vrs-mid"] p {
+    text-indent: 0;
+    margin: 0 0 0 1.75em;
+}
+[data-block_type="vrs-last"] p, [data-block_type="bx-vrs-last"] p {
+    text-indent: 0;
+    margin: 0 0 1em 1.75em;
+}
+/* Hanging Indent */
+[data-block_type="cr-unl"] p, [data-block_type="bk-cpy-staff"] p, [data-block_type="ref"] p {
+    text-indent: -1.75em;
+    margin-left: 1.75em;
+}
+
+/** 1.2: Spans **/
+span[data-block_type="drop"] {
+	font-family: Arial,Verdana,Arial,sans-serif;
+    display: block;
+    float: left;
+    font-size: 3.385em;
+    line-height: 0.6;
+    margin-top: 0.04em;
+    padding-right: 5px;
+}
+[data-term^="fn_"] {
+	vertical-align: 4px;
+	font-size: .75em;
+	margin-left: 2px;
+    margin-right: 4px;
+}
+/* small caps */
+[data-block_type="small"] {
+	font-size: .8em;
+}
+sup {
+    vertical-align: 3px;
+    font-size: .8em;
+    margin-left: 1px;
+}
+span.timeline, span.landmarks {
+    display: block;
+}
+span.timeline a, span.landmarks a {
+    color: #ffffff;
+}
+
+/** 1.3: Links **/
+a, a:hover, a:visited, a:active, .ui-widget-content a {
+    color: #000099;;
+}
+
+/** 1.4: Figures **/
+[data-type="figure"][data-layout-align="center"] {
+	margin-top: 1em;
+}
+h2 + [data-type="figure"][data-layout-align="right"] {
+    margin-top: 1.5em;
+}
+[data-type="figure"][data-layout-align="right"] {
+    margin-right: -220px;
+    clear: right;
+}
+[data-type="figure"][data-layout-width="large"] {
+    width: 570px;
+}
+[data-type="figure"][data-layout-width="small"] {
+    width: 250px;
+}
+[data-block_type="bcvideo"] {
+	width: 500px;
+}
+[data-layout-width="large"] img {
+    max-width: 570px;
+}
+[data-layout-width="small"] img {
+    max-width: 250px;
+}
+span[data-type="caption"] {
+    font-size: 0.9em;
+    margin-top: 0.3em;
+	font-family: Palatino Linotype, Book Antiqua, Palatino, serif;
+}
+/* don't display photo credits or map numbers */
+[data-type="figure_text"] [data-block_type="co-ph-cl"], [data-type="figure_text"] [data-block_type="ph-cl"], [data-type="figure_text"] [data-type="number"], [data-type="figure_text"] [data-block_type="bx-ph-cl"], [data-type="figure_text"] [data-block_type="mp-ph-cl"] {
+	display: none;
+}
+/* photo titles */
+[data-block_type="co-ph-cap"] strong, [data-block_type="ph-t"] {
+	display: block;
+	color: #0867b3;
+}
+/* map titles */
+[data-type="caption"] span[data-block_type="mp_n"] {
+    font-size: 1.1em;
+    color: #ee2e2a;
+}
+/* start map caps on new line */
+[data-type="caption"] span[data-block_type="mp-cap"] {
+    display: block;
+}
+
+/** 1.5: Lists **/
+ul[data-block_type*="square"] {
+    margin-top: .5em;
+    list-style-type: none;
+    counter-reset: li;
+}
+ul[data-block_type*="square"] > li:before {
+    content: "▪";
+    line-height: inherit;
+    margin-left: -.75em;
+    position: absolute;
+    font-size: 2em;
+    margin-top: 1px;
+}
+ul[data-block_type*="square"] li p {
+    text-indent: 0;
+}
+[data-block_type="pink-square"] > li:before {
+    color: #f4794c;
+}
+[data-block_type="white-square"] > li:before {
+    color: #ffffff;
+}
+ul[data-block_type*="square"] ul[data-block_type*="bullet"] {
+    list-style-type: disc;
+    margin-top: 0;
+}
+
+/** 1.6: Boxes **/
+/* link boxes */
+[data-block_type="link_box"] {
+    background: none repeat scroll 0 0 #F8F8F8;
+    border: 1px solid #000000;
+    font-size: 0.9em;
+    left: 640px;
+    padding: 0;
+    position: absolute;
+    width: 200px;
+}
+div[data-block_type="link_box"] h3 {
+    background: none repeat scroll 0 0 #000000;
+    color: #FFFFFF;
+    font-size: 1.1em;
+    line-height: 1;
+    margin: 0 0 0.25em;
+    padding: 0.2em 0.4em;
+}
+div[data-block_type="link_box"] p {
+	margin: 0 0.45em;
+	line-height: 1;
+	margin-bottom: 0.25em;
+}
+div[data-block_type="link_box"] ul {
+    list-style: none outside none;
+    margin: 0 0.45em;
+}
+div[data-block_type="link_box"] li {
+    line-height: 1;
+    margin-bottom: 0.25em;
+}
+/* SEEKING THE MAIN POINT */
+#manuscript [data-block_type="main_pt"] {
+	background-color: #fbb157;
+	margin-top: 2em;
+}
+#manuscript [data-block_type="main_pt"] h3 {
+	border-bottom: 2px solid #fff;
+	color: #fff;
+	font-weight: bold;
+	padding: 15px 15px 0 15px;
+	padding-left: 10px;
+}
+#manuscript [data-block_type="main_pt"] p {
+	text-indent: 0;
+	font-weight: bold;
+	padding: 0 15px 15px 15px;
+}
+/* AP Tip */
+[data-block_type="ap_tip"] {
+    float: right;
+    width: 200px;
+    margin-right: -220px;
+    background-color: #bddcd4;
+    margin-bottom: 1em;
+    clear: right;
+    /* padding: 15px; */
+}
+h2 + [data-block_type="ap_tip"] {
+    margin-top: 1.5em;
+}
+[data-block_type="ap_tip"] h3 {
+    background-color: #297b43;
+    color: #fff;
+    font-weight: normal;
+    padding: 2px 18px 0px 18px;
+    margin-top: 20px;
+}
+[data-block_type="ap_tip"] p {
+    text-indent: 0;
+    padding: 0px 18px 20px;
+}
+/* Guided Reading Questions */
+[data-block_type="grq"] {
+    float: right;
+    width: 200px;
+    margin-right: -220px;
+    border-top: #f15931 solid 2px;
+    margin-bottom: 1em;
+    clear: right;
+}
+h2 + [data-block_type="grq"] {
+    margin-top: 1.5em;
+}
+[data-block_type="grq"] h3 {
+    color: #f15931;
+    border-bottom: #f15931 1px dotted;
+}
+[data-block_type="grq"] p {
+    text-indent: 0;
+}
+[data-block_type="grq"] [data-block_type="mn-hd1"] p {
+    color: #f7953d;
+    background: url("../asset/images/orangesquare.jpg") no-repeat 0 4px;
+    background-size: 13px;
+    padding-left: 18px;
+} 
+[data-block_type="grq"] [data-block_type="sq_mrk"] {
+    display: none;
+}
+/* Snapshots */
+[data-block_type="snapshot"] {
+    border-top: solid #fbb258 4px;
+    background-color: #fff4d9;
+}
+[data-block_type="snapshot"] h3 {
+    border-bottom: 1px solid #fff;
+    padding-left: 1.5em;
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+}
+[data-block_type="snapshot"] h3 .tbl_title {
+    display: inline-block;
+    margin-left: 1em;
+}
+[data-block_type="snapshot"] [data-type="table"], [data-block_type="snapshot"] table {
+    background: transparent;
+}
+[data-block_type="snapshot"] [data-type="table"] h3 {
+    display: none;
+}
+[data-block_type="snapshot"] [data-type="table"] {
+    padding-top: 0;
+}   
+[data-block_type="snapshot"] p {
+    padding: 0 14px;
+}
+[data-block_type="snapshot"] tr {
+    border-top: 1px solid #fbb258;
+}
+[data-block_type="snapshot"] tbody > tr:first-child {
+    border-top: none;
+    color: #414099;
+}
+[data-block_type="snapshot"] [data-block_type="tb-st"] p {
+    text-indent: 0;
+    color: #414099;
+    margin-top: 1em;
+}
+[data-block_type="snapshot"] [data-block_type="tb-colhd"] p {
+    text-indent: 0;
+    color: #414099;
+    margin-left: 1.75em;
+}
+[data-block_type="tb-rowhd2"] {
+    display: inline-block;
+    color: #414099;
+    margin-left: 1.75em;
+}
+[data-block_type="tb-rowhd"] {
+    color: #414099;
+}
+[data-block_type="snapshot"] [data-type="figure"] {
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Practicing AP*/
+[data-block_type="prac_ap"] {
+    background-color: #aebde1;
+    margin-bottom: 1em;
+    /* padding: 15px; */
+}
+[data-block_type="prac_ap"] h3 {
+    background-color: #0867b3;
+    color: #fff;
+    font-weight: normal;
+    padding: 2px 18px 0px 18px;
+    margin-top: 20px;
+}
+[data-block_type="prac_ap"] p {
+    text-indent: 0;
+    padding: 0px 18px 20px;
+}
+
+/** 1.7: Tables **/
+/* A Map of Time */
+[data-block_type="timeline"] {
+    border-top: solid #fbb258 4px;
+    background-color: #fff4d9;
+    margin-top: 1em;
+    padding-top: 0;
+}
+[data-block_type="timeline"] table {
+    background-color: #fff4d9;
+    width: 100%;
+}
+[data-block_type="timeline"] th {
+    background: transparent;
+    border: none;
+    text-align: left;
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+    font-size: 1.2em;
+    padding: 5px 0px;
+}
+[data-block_type="timeline"] tr {
+    border-bottom: 1px solid #fbb258;
+}
+[data-block_type="timeline"] tbody > tr:first-child {
+    border-bottom: 1px solid #fff;
+}
+[data-block_type="timeline"] tbody > tr:last-child {
+    border-bottom: none;
+}
+[data-block_type="timeline"] tr > td:first-child {
+    text-align: right;
+}
+[data-block_type="timeline"] [data-block_type="tl-br"] {
+    display: block;
+}
+#supp_win [data-type="table"][data-block_type="snapshot"],  #supp_win [data-type="table"][data-block_type="snapshot"] table {
+    max-width: 657px;
+}
+
+/** 1.8: Questions **/
+/* by default we want to show all answer boxes */
+div[data-type="question"] div[data-type="query_display"] {
+    display: block;
+}
+/* we don't need the question number or title*/
+[data-type="question"] .bh .question-number, [data-type="question"] h3 {
+    display: none;
+}
+.essay-question div {
+    text-indent: 0;
+    margin-bottom: 1em;
+    line-height: 1.3;
+}
+div[data-block_type="questions"] .essay-question div {
+    text-indent: 0;
+	line-height: 1.3;
+}
+[data-type="question"] {
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    margin-top: 1em;
+    margin-bottom: .5em;
+}
+p.query_text {
+	text-indent: 0;
+}
+/* submit button */
+.question_action_div input {
+    display: inline-block;
+    font-family: "cooper-black-std-1", "cooper-black-std-2", Helvetica, Arial, sans-serif;
+    line-height: 1;
+    text-shadow: 0 -1px 1px rgba(19,65,88,.8);
+    background: #3194c6;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#3194c6), to(#5bacd6));
+    background: -moz-linear-gradient(#3194c6, #5bacd6);
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: inset 0 -1px 1px rgba(255,255,255,.15);
+    -moz-box-shadow: inset 0 -1px 1px rgba(255,255,255,.15);
+    box-shadow: inset 0 -1px 1px rgba(255,255,255,.15);
+    -webkit-transition: -webkit-transform .1s ease-in-out;
+    -moz-transition: -moz-transform .1s ease-in-out;
+    -o-transition: -o-transform .1s ease-in-out;
+    transition: transform .1s ease-in-out;
+    color: #fff;
+    padding: 0.35em 1em 0.25em;
+    border: 0;
+    margin-right: 0px;
+}
+.question_action_div {
+    padding-bottom: 0.5em;
+}
+.query_mc_feedback_correct_incorrect em {
+	font-style: normal;
+}
+
+/** 1.9 Print Page Numbers **/
+#print_page_box { 
+  display: block; 
+}
+[data-block_type="page_start"] {
+  display: block;
+  left: 750px;
+}
+.first_pg #print_page_header {
+    width: 146px;
+}
+div.page_num {
+    float: right;
+    margin-right: -220px;
+    margin-left: .5em;
+    margin-top: -10px;
+    width: 200px;
+    position: relative;
+    z-index: 100;
+    padding: 10px 0 5px 0;
+}
+div.page_num p {
+    text-indent: 0;
+    font-size: 0.85em;  
+    line-height: 1.3;
+    padding: 2px 5px;
+}
+#supp_win div.page_num p {
+    display: none;
+}
+
+/** 1.10 HRs **/
+#manuscript [data-block_type="hr1"] hr {
+	border: solid 1px #066b2f;
+	margin-top: 3em;
+	background-color: #066b2f;
+}
+#manuscript [data-block_type="hr2"] hr {
+	border: solid 1px #0867b3;
+	margin-bottom: 3em;
+	clear: right;
+	background-color: #0867b3;
+}
+
+/*** 
+=  2 — Sections
+***/
+
+/** 2.1 Intro **/
+[data-block_type="intro"] h2 {
+	display: none;
+}
+[data-block_type="intro"] [data-block_type="ch_num"] p {
+    text-indent: 0;
+    text-align: center;
+    font-size: 1.5em;
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+}
+[data-block_type="intro"] [data-block_type="title"] p {
+    text-indent: 0;
+    text-align: center;
+    font-size: 2.75em;
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+    color: #0867b3;
+}
+[data-block_type="intro"] [data-block_type="cst_dt"] p, #manuscript [data-block_type="intro"] [data-block_type="cst"] p, #manuscript [data-block_type="intro"] [data-block_type="cst-dt"] p {
+    text-indent: 0;
+    text-align: center;
+    font-size: 1.5em;
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+    color: #0867b3;
+}
+[data-block_type="intro"] [data-block_type="toc"] {
+    float: right;
+    width: 300px;
+    margin: 0 -220px 1em 15px;
+}
+[data-block_type="intro"] [data-block_type="toc"] h3 {
+    display: none;
+}
+[data-block_type="intro"] [data-block_type="toc"] + div > p {
+	text-indent: 0;
+}
+[data-block_type="toc"] [data-block_type="co-toc-h1"] p {
+    text-indent: 0;
+}
+[data-block_type="toc"] [data-block_type="co-toc-h2"] p {
+    text-indent: 0;
+    margin-left: 1.75em;
+}
+[data-block_type="intro"] [data-block_type="co-txt-ni"] {
+    margin-top: 3em;
+}
+[data-block_type="intro"] span[data-block_type="drop"] {
+    color: #0867b3;
+}
+[data-block_type*="co_intr"] p, [data-block_type*="co-intr"] p {
+    line-height: 1.7;
+    font-size: 1.1em;
+}
+
+/** 2.2 A Heads **/
+[data-block_type="a_head"] h2, [data-block_type="gre"] h2, [data-block_type="auth_prev"] h2 {
+    color: #ee2e2a;
+    font-size: 1.5em;
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+}
+
+/** 2.3 B Heads **/
+[data-block_type="b_head"] h2 {
+    color: #414099;
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+    font-style: italic;
+    font-size: 1.4em;
+    font-weight: bold;
+    line-height: 1.3;
+    margin-bottom: 0.6em;
+}
+/** 2.4 ZOOMING IN **/
+body.zoom {
+    background-color: #f2f0de;
+}
+[data-block_type="zoom"] h2 {
+    background: url("../asset/images/zoom.png") no-repeat 0 0 / 225px;
+    padding-left: 220px;
+    padding-top: 28px;
+    height: 60px;
+    font-weight: bold;
+    margin-left: -15px;
+}
+[data-block_type="zoom"] [data-block_type="drop"] {
+    color: #414099;
+}
+
+/** 2.5 REFLECTIONS **/
+#manuscript [data-block_type="reflections"] h2 {
+    background-color: #F9B161;
+    width: 150px;
+    text-align: center;
+    padding-top: 2px;
+    padding-bottom: 1px;
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+    margin-bottom: 5px;
+    box-shadow: 5px 5px 5px black;
+}
+#manuscript [data-block_type="reflections"] .sub_t {
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+    text-indent: 0;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #0867b3;
+    margin-bottom: 13px;
+}
+
+/** 2.6 CHAPTER REVIEW **/
+[data-block_type="ch_rev"] h1 {
+    display: block;
+    color: #0867b3;
+    padding-top: 5px;
+    border-top: 1px solid #0867b3;
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+    font-face: 1.5em;
+    font-weight: bold;
+}
+[data-block_type="ch_rev"] h2 {
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #ee2e2a;
+}
+[data-block_type="ch_rev"] [data-block_type="cr_mcl"] p {
+    text-indent: 0;
+}
+[data-block_type="ch_rev"] [data-block_type="cr_unl"] p {
+    text-indent: -1.75em;
+    margin-left: 1.75em;
+}
+[data-block_type="ch_rev"] [data-block_type="cr_h1"] p, [data-block_type="cr-h1"] p {
+    text-indent: 0;
+    color: #ee2e2a;
+    margin-top: 1em;
+}
+[data-block_type="ch_rev"] h1 + [data-block_type="cr_h1"] p {
+    margin-top: 0;
+}
+[data-block_type="ch_rev"] [data-block_type="cr_h1"] + ol, [data-block_type="ch_rev"] [data-block_type="cr_h1"] + [data-block_type="cr_mcl"] p, [data-block_type="ch_rev"] [data-block_type="cr_h1"] + [data-block_type="cr_unl"] p {
+    margin-top: .5em;
+}
+
+/** 2.7 AP Practice Exam **/
+[data-block_type="practice"] h2 {
+    background-color: #F9B161;
+    padding: 10px 0 5px 5px;
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+    box-shadow: 5px 5px 5px black;
+    width: 400px;
+}
+
+/** 2.8 About the Authors **/
+[data-block_type="about"] h2 {
+    color: #0867b3;
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+    font-size: 2em;
+    text-align: center;
+}
+[data-block_type="about"] [data-type="caption"] {
+    display: none;
+}
+[data-block_type="about"] [data-type="figure"] {
+    margin-right: -150px;
+}
+
+/** 2.9 Preface **/
+body.preface {
+    background-color: #e8ecf7;
+}
+body.preface h2 {
+    color: #0867b3;
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+    font-size: 2em;
+    text-align: center;
+    text-decoration: underline;
+}
+body.preface p {
+    text-indent: 0;
+    margin-top: 1em;
+}
+body.preface [data-block_type="pull"], [data-block_type="hts"] [data-block_type="pull"] {
+    float: right;
+    width: 250px;
+    margin-right: -200px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    height: 250px;
+}
+body.preface [data-block_type="pull"] p, [data-block_type="hts"] [data-block_type="pull"] p {
+    color: #ffffff;
+    text-align: right;
+}
+body.preface span[data-block_type="drop"], [data-block_type="hts"] [data-block_type="pull"] span[data-block_type="drop"] {
+    font-family: Arial,Verdana,Arial,sans-serif;
+    display: inline;
+    float: left;
+    font-size: 10em;
+    line-height: 0.6;
+    margin-top: 0.04em;
+    padding-right: 5px;
+}
+body.preface [data-type="figure"] {
+    border: none;
+    padding: 0;
+}
+body.preface [data-block_type="fm-3-hd1"] p, body.preface [data-block_type="h3"] p {
+    color: #ee2e2a;
+    font-size: 1.5em;
+}
+
+/** 2.10 FM WWE AHead **/
+[data-block_type="wwe_ahead"] h2 {
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+    font-size: 2.75em;
+    color: #0867B3;
+    text-align: center;
+}
+[data-block_type="wwe_ahead"] p.sub_t {
+    font-size: 1.5em;
+    text-indent: 0;
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+    color: #0867B3;
+    text-align: center;
+    margin-top: -.8em;
+    margin-bottom: 2em;
+}
+[data-block_type="wwe_ahead"] [data-block_type="drop"] {
+    color: #0867B3;
+}
+
+/** 2.11 FM WWE BHead **/
+[data-block_type="wwe_bhead"] h2 {
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+    color: #ee2e2a;
+    font-size: 1.5em;
+}
+[data-block_type="wwe_bhead"] [data-block_type="drop"] {
+    color: #0867B3;
+}
+
+/** 2.12 AP Historical Thinking Skills **/
+[data-block_type="hts"] h2 {
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+    font-size: 2.75em;
+    color: #0867B3;
+    text-align: center;
+    width: 280px;
+    margin-left: auto;
+    margin-right: auto; 
+    margin-bottom: 0;
+}
+[data-block_type="hts"] [data-block_type="sub-t"] p {
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+    text-indent: 0;
+    text-align: center;
+    font-size: 1.7em;
+    color: #ee2e2a;
+}
+[data-block_type="hts"] [data-block_type="fm-2-au"] p {
+    text-indent: 0;
+    color: #414099;
+    font-size: 1.2em;
+    margin-top: 2em;
+}
+[data-block_type="hts"] [data-block_type="au-tit"] p {
+    text-indent: 0;
+    font-size: 1.1em;
+}
+[data-block_type="hts"] [data-block_type="au-tit-tm"] p {
+    text-indent: 0;
+    font-size: 1.1em;
+    margin-top: 1em;
+}
+[data-block_type="hts"] [data-block_type="h3"] p {
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+    text-indent: 0;
+    color: #ee2e2a;
+    font-size: 1.5em;
+    margin-top: 1em;
+}
+[data-block_type="hts"] [data-block_type="h4"] p {
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+    text-indent: 0;
+    font-size: 1.2em;
+    margin-top: 1em;
+    color: #414099;
+}
+[data-block_type="hts"] [data-block_type="fm-2-h3"] p {
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+    text-indent: 0;
+    margin-top: 1em;
+    font-weight: bold;
+}
+[data-block_type="hts"] [data-block_type="exercise"] {
+    background-color: #fff1d0;
+    padding: 15px;
+}
+[data-block_type="hts"] [data-block_type="exercise"] h3 {
+    display: none;
+}
+[data-block_type="hts"] [data-block_type="exercise"] p {
+    text-indent: 0;
+}
+[data-block_type="hts"] [data-block_type="exercise"] [data-block_type="ex-title"] {
+    color: #f68b60;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+/** 2.13 Part Intros **/
+body.pt_intro {
+    background-color: #f2f0de;
+}
+[data-block_type="pt_intro"] h2 {
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+    color: #414099;
+    font-size: 2.75em;
+    margin-top: .25em;
+    text-align: center;
+}
+[data-block_type="pt_intro"] .pt_num {
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+    text-indent: 0;
+    font-size: 1.2em;
+    text-align: center;
+    letter-spacing: 14px;
+}
+[data-block_type="pt_intro"] [data-block_type="pst"] p {
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+    color: #414099;
+    text-indent: 0;
+    font-size: 1.5em;
+    margin-top: -.75em;
+    text-align: center;
+}
+[data-block_type="pt_intro"] [data-type="figure_text"] {
+    display: none;
+}
+[data-block_type="pt_intro"] [data-block_type="po-toc-h"] p {
+    text-indent: 0;
+    text-align: center;
+    color: #0867B3;
+    font-weight: bold;
+}
+[data-block_type="pt_intro"] [data-block_type="po-toc-ct"] p {
+    text-indent: 0;
+}
+
+/** 2.14 Part: Big Picture **/
+body.big_pic {
+    background-color: #f2f0de;
+}
+[data-block_type="big_pic"] h2 {
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+    color: #414099;
+    font-size: 1.7em;
+    text-align: center;
+    margin-bottom: 2em;
+    margin-top: .5em;
+}
+[data-block_type="big_pic"] .pt_num {
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+    text-indent: 0;
+    font-size: 1.1em;
+    text-align: center;
+    letter-spacing: 14px;
+    padding-bottom: 1em;
+    border-bottom: 2px solid black;
+}
+
+/** 2.15 PART B HEAD **/
+body.pt_bhead {
+    background-color: #f2f0de;
+}
+[data-block_type="pt_bhead"] h2 {
+    color: #414099;
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+    font-style: italic;
+    font-size: 1.4em;
+    font-weight: bold;
+    line-height: 1.3;
+    margin-bottom: 0.6em;
+}
+[data-block_type="pt_bhead"] h2.theme {
+    text-align: center;
+    font-style: normal;
+}
+[data-block_type="pt_bhead"] [data-block_type="sub-t"] p {
+    text-align: center;
+    text-indent: 0;
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+    color: #414099;
+    font-size: 1.2em;
+    margin-bottom: 2em;
+}
+
+/** 2.16 Credits/Notes **/
+[data-block_type="bm"] h2 {
+    color: #0867b3;
+    font-family: "Palatino Linotype","Book Antiqua",Palatino,serif;
+    font-size: 2em;
+    text-align: center;
+}
+[data-block_type="bm"] h2 + [data-block_type="ref-hd1"] p, [data-block_type="bm"] h2 + [data-block_type="ref-hd2"] p {
+    margin-top: 0;
+}
+[data-block_type="bm"] [data-block_type="ref-hd1"] p, [data-block_type="bm"] [data-block_type="ref-hd2"] p {
+    color: #0867b3;
+    text-indent: 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 1em;
+}
+[data-block_type="bm"] ol {
+    margin-top: 0;
+}

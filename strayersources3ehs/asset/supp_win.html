@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+
+<head>
+
+  <!-- supp_win.html version 2014072701 -->
+
+  <title></title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+  <style>
+    html { height: 100%; }
+    body { height: 100%; margin: 0; overflow: hidden; display: table; width: 100%; }
+    #nav { height: 2em; display: none; }
+    .ie8 #nav, .ie9 #nav { height: 5%; }
+    #navp { background: #eee; margin: 0; text-align: center; display: table-cell; padding-top: 0.4em; font-family: arial, helvetica, sans-serif; font-size: 12px; box-shadow: 0 4px 2px -3px rgba(0, 0, 0, 0.5); border-bottom: 1px solid #000; }
+    #navp .navlink { cursor: pointer; }
+    #navp .disabled { color: #999; cursor: default; }
+    #navp span { display: none; }
+    #page { height: 100%; display: table-row; }
+    #xBookSuppWinNavPageFrame { display: table-cell; border: 0 none; height: 100%; width: 100%; }
+    .ie8 #xBookSuppWinNavPageFrame, .ie9 #xBookSuppWinNavPageFrame {
+        display: block; position: absolute; height: 95%;
+    }
+    .display-image #page { text-align: center; }
+    .display-image { overflow: auto; }
+    .display-image #xBookSuppWinNavPageFrame { display: none; }
+
+    /* target IE 10/11 */
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
+        #nav { height: 5%; }
+        #xBookSuppWinNavPageFrame {
+            display: block; position: absolute; height: 95%;
+        }
+    }
+
+  </style>
+
+  <script>
+    function safe_log(s) {
+      try {
+        console.log(s);
+      } catch(e) {}
+    }
+
+    // grab page and baseurl from url
+    var manuscript = document.location.search.match(/manuscript=([^&]+)/);
+    var target = document.location.search.match(/target=([^&]+)/);
+    var baseurl = document.location.search.match(/baseurl=([^&]+)/);   
+    var bookid = document.location.search.match(/bookid=([^&]+)/); 
+    
+    var image = document.location.search.match(/image=([^&]+)/);
+    var imgwidth = document.location.search.match(/imgwidth=([^&]+)/);
+
+    var BOOKID = null;
+    var MANUSCRIPT = null;
+    var TARGET = null;
+    var BASEURL = null;
+    var SUPP_TOC = null; // holds the toc order for the supp window
+    var INDEX = null; // this is the current index in the TOC array
+    var IMAGE = null;
+    var IMGWIDTH = null;
+
+    if (bookid !== null) {
+      BOOKID = bookid[1];
+    }
+    if (manuscript !== null) {
+      MANUSCRIPT = manuscript[1];
+    }
+    if (target !== null) {
+      TARGET = target[1];
+    }
+    if (baseurl !== null) {
+      BASEURL = baseurl[1];
+    }
+    if (image !== null) {
+      IMAGE = image[1];
+    }
+    if (imgwidth !== null) {
+      IMGWIDTH = imgwidth[1];
+    }
+
+    if (BASEURL !== null) {
+      // load all the helper files we need
+      var head = document.getElementsByTagName("head")[0];
+
+      // jquery
+      //var jquery_script = document.createElement('script');
+      //jquery_script.setAttribute('type','text/javascript');
+      //jquery_script.setAttribute('src', BASEURL + "js/jquery.js");
+      //head.appendChild(jquery_script);
+
+      var toc = document.createElement('script');
+      toc.setAttribute('type','text/javascript');
+      toc.setAttribute('src', BASEURL + "asset/supp_toc.js");
+      head.appendChild(toc);
+    }
+
+  </script>
+
+</head>
+
+<body onload="init()">
+
+<div id="nav">
+<p id="navp"><span class="navlink" data-direction="prev">&lt; Previous Page</span> <span class="sep">|</span> <span class="navlink" data-direction="next">Next Page &gt;</span></p>
+</div>
+
+<div id="page">
+<iframe id="xBookSuppWinNavPageFrame" onload="setNavigation()">
+</iframe>
+</div>
+
+<script>
+  
+  var timer;
+
+  var TIMER_COUNT = 0;
+
+  // finds the manuscript in string and returns the page
+  function getPage(string) {
+    if (string === undefined) { return null; }
+
+    var match = string.match(/([a-z]+\d+_\d+)/);
+    if (match === null) {
+      return null;
+    }
+    var page = BOOKID + "_" + match[1] + ".html";
+    return page;
+  }
+
+  function getIndex(manuscript) {
+
+    safe_log("getIndex: " + manuscript);
+
+    if (SUPP_TOC === null) {
+      safe_log("getIndex: SUPP_TOC is null");
+      return -1;
+    }
+
+    var i;
+    for (i=0; i<SUPP_TOC.length; i++) {
+      if (SUPP_TOC[i] == manuscript) {
+        return i;
+      }
+      if (SUPP_TOC[i] === (BOOKID + "_" + manuscript)) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  // returns the manuscript found in string
+  function getManuscript(string) {
+    var match = string.match(/([a-z]+\d+_\d+)/);
+    if (match != null) {
+      return match[1];
+    }
+    return null;
+  } 
+
+  // newIndex is the index in the SUPP_TOC array
+  function loadPage(newIndex) {
+    INDEX = newIndex;
+    MANUSCRIPT = SUPP_TOC[INDEX];
+    var page = getPage(MANUSCRIPT);
+
+    // load page into frame
+    var ifrm = document.getElementById('xBookSuppWinNavPageFrame');
+    var target_page = BASEURL + page;
+  
+    ifrm.setAttribute('src', target_page);
+  }
+
+  function setNavigation() {
+     // if jQuery isn't loaded yet, ignore
+     if(!window.jQuery) {
+        return;
+     }
+
+     // need to get SUPP_TOC index for current page in frame
+     var man = getManuscript( $('#xBookSuppWinNavPageFrame').contents().get(0).location.href );
+     INDEX = getIndex(man);
+
+     //$("#navp").css('display','table-cell');
+     //$("#navp").css('border-bottom','1px solid #000');
+
+     if (INDEX < 0) {
+       //$("#navp").css('display','none');
+       //$("#navp").find("span").css('display', 'none');
+       return;
+     }
+     //$("#navp").css('display','table-cell');
+     //$("#navp").css('border-bottom','1px solid #000');
+     $("#navp span").css('display', 'inline');
+
+     if (INDEX < 1) {
+       $("[data-direction='prev']").addClass("disabled");
+     }
+     else {
+       $("[data-direction='prev']").removeClass("disabled");
+     }
+
+     if (INDEX >= (SUPP_TOC.length - 1)) {
+       $("[data-direction='next']").addClass("disabled");
+     }
+     else {
+       $("[data-direction='next']").removeClass("disabled");
+     }
+  }
+
+
+  function init() {
+  
+    if (BOOKID === null || BASEURL === null) {
+       return;
+    }
+    if (MANUSCRIPT === null && IMAGE === null) {
+       return;
+    }
+
+    // load page into frame
+    if (MANUSCRIPT !== null) {
+      $("#nav").css('display', 'table-row');
+      $("body").removeClass("display-image");
+
+      var ifrm = document.getElementById('xBookSuppWinNavPageFrame');
+      var target_page;
+      target_page = BASEURL + getPage(MANUSCRIPT);
+
+      INDEX = getIndex(MANUSCRIPT);  
+
+      if (TARGET !== null) {
+        target_page += "#" + TARGET;
+      }
+      ifrm.setAttribute('src', target_page);
+
+      // after jQuery and SUPP_TOC have loaded then we need to set handlers and nav
+      timer = setInterval(function(){initHandlerNav()},250);
+    }
+    else if (IMAGE !== null) {
+      var image_file = BASEURL + IMAGE;
+      var width = "";
+      if (IMGWIDTH !== null) {
+        width = " width=\"" + IMGWIDTH + "\"";
+      }
+      $("body").addClass("display-image");
+      var $page = $("#page");
+      $page.prepend("<img src='https://digfir-published.macmillanusa.com/strayersources3ehs/asset/&quot;&#32;+&#32;image_file&#32;+&#32;&quot;'" + width + "/>");
+      //$page.css('text-align', 'center');
+      //$("body").css('overflow','auto');
+      //$("#xBookSuppWinNavPageFrame").css('display','none');
+    }
+
+  } // end init()
+  
+
+  function initHandlerNav() {
+
+    TIMER_COUNT++;		 
+
+    if (TIMER_COUNT > 20) {
+        clearInterval(timer);
+        safe_log("Ran out of attempts to get jQuery and SUPP_TOC");
+        return;
+    }
+
+    if(!window.jQuery) {
+       safe_log("jQuery not loaded");
+       return;
+    }
+
+    if(SUPP_TOC === null) {
+       safe_log("SUPP_TOC not loaded");
+       return;
+    }		 
+
+    INDEX = getIndex(MANUSCRIPT);
+
+    // if we can't find the index then it doesn't exist in SUPP_TOC
+
+    if (INDEX < 0) {
+       safe_log("initHandlerNav: can't find index for manuscript " + MANUSCRIPT);
+    }
+    else {
+       safe_log("initHandlerNav: found index for manuscript " + MANUSCRIPT);
+    }
+
+    // handlers for nav functions
+    $(".navlink").click(function() {
+       var action = $(this).data('direction');
+       if (action == "prev") {
+          if (INDEX < 1) {
+          }
+          else {
+            loadPage(INDEX - 1);
+          }
+       }
+       else if (action == "next") {
+          if (INDEX >= (SUPP_TOC.length - 1)) {
+            //console.log("at last page");
+          }
+          else {
+            loadPage(INDEX + 1);
+          }
+       }
+    });
+
+    //$("#navp").css('display','block');
+
+    setNavigation();
+
+    clearInterval(timer);
+
+  }
+  
+
+
+</script>
+
+</body>
+</html>

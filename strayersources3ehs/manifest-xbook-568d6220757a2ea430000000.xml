@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<manifest id="strayersources3ehs">
+  <manuscript id="568d6220757a2ea430000000" title="1. First Peoples; First Farmers" question-delivery-method="ARGA" number="1">
+    <section title="Author Preview Video with Robert Strayer for Chapter 1" id="strayersources3ehs_ch1_authprev" folder="false" filename="strayersources3ehs_ch1_1.html" dlapFilename="strayersources3ehs_ch1_1_dlap.xml" numquestions="0"/>
+    <section title="Introduction to Chapter 1" id="strayersources3ehs-ch01-sec1-1" folder="false" filename="strayersources3ehs_ch1_2.html" dlapFilename="strayersources3ehs_ch1_2_dlap.xml" numquestions="0"/>
+    <section title="Guided Reading Exercise for Chapter 1" id="strayersources3ehs_ch1_gre" folder="false" filename="strayersources3ehs_ch1_3.html" dlapFilename="strayersources3ehs_ch1_3_dlap.xml" numquestions="0"/>
+    <section id="strayersources3ehs-ch01-sec1-001" folder="true" filename="strayersources3ehs_ch1_4.html" dlapFilename="strayersources3ehs_ch1_4_dlap.xml" numquestions="0">
+      <title>Out of Africa: First Migrations</title>
+      <section id="strayersources3ehs-ch01-sec2-001" folder="false" filename="strayersources3ehs_ch1_5.html" dlapFilename="strayersources3ehs_ch1_5_dlap.xml" numquestions="0">
+        <title>Into Eurasia</title>
+      </section>
+      <section id="strayersources3ehs-ch01-sec2-002" folder="false" filename="strayersources3ehs_ch1_6.html" dlapFilename="strayersources3ehs_ch1_6_dlap.xml" numquestions="0">
+        <title>Into Australia</title>
+      </section>
+      <section id="strayersources3ehs-ch01-sec2-003" folder="false" filename="strayersources3ehs_ch1_7.html" dlapFilename="strayersources3ehs_ch1_7_dlap.xml" numquestions="0">
+        <title>Into the Americas</title>
+      </section>
+      <section id="strayersources3ehs-ch01-sec2-004" folder="false" filename="strayersources3ehs_ch1_8.html" dlapFilename="strayersources3ehs_ch1_8_dlap.xml" numquestions="0">
+        <title>Into the Pacific</title>
+      </section>
+    </section>
+    <section id="strayersources3ehs-ch01-sec1-002" folder="true" filename="strayersources3ehs_ch1_9.html" dlapFilename="strayersources3ehs_ch1_9_dlap.xml" numquestions="0">
+      <title>The Ways We Were</title>
+      <section id="strayersources3ehs-ch01-sec2-005" folder="false" filename="strayersources3ehs_ch1_10.html" dlapFilename="strayersources3ehs_ch1_10_dlap.xml" numquestions="0">
+        <title>The First Human Societies</title>
+      </section>
+      <section id="strayersources3ehs-ch01-sec2-006" folder="false" filename="strayersources3ehs_ch1_11.html" dlapFilename="strayersources3ehs_ch1_11_dlap.xml" numquestions="0">
+        <title>Economy and the Environment</title>
+      </section>
+      <section id="strayersources3ehs-ch01-sec2-007" folder="false" filename="strayersources3ehs_ch1_12.html" dlapFilename="strayersources3ehs_ch1_12_dlap.xml" numquestions="0">
+        <title>The Realm of the Spirit</title>
+      </section>
+      <section id="strayersources3ehs-ch01-sec2-008" folder="false" filename="strayersources3ehs_ch1_13.html" dlapFilename="strayersources3ehs_ch1_13_dlap.xml" numquestions="0">
+        <title>Settling Down: The Great Transition</title>
+      </section>
+      <section title="ZOOMING IN: G&#xF6;bekli Tepe: Monumental Construction before Agriculture" id="strayersources3ehs-ch01-bx3-001" folder="false" filename="strayersources3ehs_ch1_14.html" dlapFilename="strayersources3ehs_ch1_14_dlap.xml" numquestions="0"/>
+    </section>
+    <section id="strayersources3ehs-ch01-sec1-003" folder="true" filename="strayersources3ehs_ch1_15.html" dlapFilename="strayersources3ehs_ch1_15_dlap.xml" numquestions="0">
+      <title>Breakthroughs to Agriculture</title>
+      <section id="strayersources3ehs-ch01-sec2-009" folder="false" filename="strayersources3ehs_ch1_16.html" dlapFilename="strayersources3ehs_ch1_16_dlap.xml" numquestions="0">
+        <title>Common Patterns</title>
+      </section>
+      <section id="strayersources3ehs-ch01-sec2-010" folder="false" filename="strayersources3ehs_ch1_17.html" dlapFilename="strayersources3ehs_ch1_17_dlap.xml" numquestions="0">
+        <title>Variations</title>
+      </section>
+    </section>
+    <section id="strayersources3ehs-ch01-sec1-004" folder="true" filename="strayersources3ehs_ch1_18.html" dlapFilename="strayersources3ehs_ch1_18_dlap.xml" numquestions="0">
+      <title>The Globalization of Agriculture</title>
+      <section id="strayersources3ehs-ch01-sec2-011" folder="false" filename="strayersources3ehs_ch1_19.html" dlapFilename="strayersources3ehs_ch1_19_dlap.xml" numquestions="0">
+        <title>Triumph and Resistance</title>
+      </section>
+      <section title="ZOOMING IN: Ishi, the Last of His People" id="strayersources3ehs-ch01-bx3-002" folder="false" filename="strayersources3ehs_ch1_20.html" dlapFilename="strayersources3ehs_ch1_20_dlap.xml" numquestions="0"/>
+      <section id="strayersources3ehs-ch01-sec2-012" folder="false" filename="strayersources3ehs_ch1_21.html" dlapFilename="strayersources3ehs_ch1_21_dlap.xml" numquestions="0">
+        <title>The Culture of Agriculture</title>
+      </section>
+    </section>
+    <section id="strayersources3ehs-ch01-sec1-005" folder="true" filename="strayersources3ehs_ch1_22.html" dlapFilename="strayersources3ehs_ch1_22_dlap.xml" numquestions="0">
+      <title>Social Variation in the Age of Agriculture</title>
+      <section id="strayersources3ehs-ch01-sec2-013" folder="false" filename="strayersources3ehs_ch1_23.html" dlapFilename="strayersources3ehs_ch1_23_dlap.xml" numquestions="0">
+        <title>Pastoral Societies</title>
+      </section>
+      <section id="strayersources3ehs-ch01-sec2-014" folder="false" filename="strayersources3ehs_ch1_24.html" dlapFilename="strayersources3ehs_ch1_24_dlap.xml" numquestions="0">
+        <title>Agricultural Village Societies</title>
+      </section>
+      <section id="strayersources3ehs-ch01-sec2-015" folder="false" filename="strayersources3ehs_ch1_25.html" dlapFilename="strayersources3ehs_ch1_25_dlap.xml" numquestions="0">
+        <title>Chiefdoms</title>
+      </section>
+      <section title="Another Voice with Eric Nelson for Chapter 1" id="strayersources3ehs-ch1-section-1" folder="false" filename="strayersources3ehs_ch1_26.html" dlapFilename="strayersources3ehs_ch1_26_dlap.xml" numquestions="0"/>
+    </section>
+    <section id="strayersources3ehs-ch01-sec1-006" folder="false" filename="strayersources3ehs_ch1_27.html" dlapFilename="strayersources3ehs_ch1_27_dlap.xml" numquestions="0">
+      <title>REFLECTIONS: The Uses of the Paleolithic</title>
+    </section>
+    <section id="strayersources3ehs-ch01-sec2-016" folder="false" filename="strayersources3ehs_ch1_28.html" dlapFilename="strayersources3ehs_ch1_28_dlap.xml" numquestions="0">
+      <title>What&#x2019;s the Significance?</title>
+    </section>
+    <section id="strayersources3ehs-ch01-sec2-017" folder="false" filename="strayersources3ehs_ch1_29.html" dlapFilename="strayersources3ehs_ch1_29_dlap.xml" numquestions="0">
+      <title>Big Picture Questions</title>
+    </section>
+    <section id="strayersources3ehs-ch01-sec2-018" folder="false" filename="strayersources3ehs_ch1_30.html" dlapFilename="strayersources3ehs_ch1_30_dlap.xml" numquestions="0">
+      <title>Next Steps: For Further Study</title>
+    </section>
+  </manuscript>
+</manifest>
