@@ -15,6 +15,7 @@ header {
 }
 
 main {
+  max-width: 865px;
   margin: 2em auto;
   padding: 1em;
   background: white;
