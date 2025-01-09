@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dynamic Section Viewer</title>
+  <title>Ways Of The World</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>Dynamic Section Viewer</h1>
+    <h1>Ways of The World</h1>
   </header>
   <main>
     <form class="sectionForm">
       <label for="section">Enter Section (or String):</label>
-      <input type="text" id="section" name="section" placeholder="Enter a string">
-      <button type="submit">Submit</button>
+      <input type="text" id="section" name="section" placeholder="CHAPTER_PAGE; EX: 17_2">
+      <button type="submit">Search</button>
     </form>   
     <div class="iframe-container">
-      <iframe class="strayer" title="Section Viewer"></iframe>
+      <iframe class="strayer" title="Section Viewer" target="_self"></iframe>
     </div>
     <div class="feedback" id="feedback"></div>
   </main>
