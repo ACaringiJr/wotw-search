@@ -9,36 +9,44 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
 
-      // Regex patterns
-      const properNounRegex = /(?<![\.\!\?]\s)\b[A-Z][a-z]*\b/g; // Avoids highlighting words after sentence-ending punctuation
+      // Regex patterns for proper nouns and numbers
+      const properNounRegex = /(?<![.!?\n]\s*)\b[A-Z][a-z]*\b/g; // Skip words at start of sentences/paragraphs
       const numberRegex = /\b\d+\b/g;
 
-      // Function to highlight text in an element
-      function highlightText(element) {
-        const text = element.innerHTML;
+      // Function to process text nodes
+      function processTextNode(node) {
+        const text = node.nodeValue;
 
-        // Replace proper nouns with inline styles for highlighting
-        let highlightedText = text.replace(properNounRegex, (match) => {
-          return `<span style="background-color: #e0b3ff; border-radius: 3px; padding: 2px;">${match}</span>`;
-        });
+        // Replace proper nouns and numbers with styled spans
+        const highlightedHTML = text
+          .replace(properNounRegex, (match) => {
+            return `<span style="background-color: #e0b3ff; border-radius: 3px; padding: 2px;">${match}</span>`;
+          })
+          .replace(numberRegex, (match) => {
+            return `<span style="background-color: #add8e6; border-radius: 3px; padding: 2px;">${match}</span>`;
+          });
 
-        // Replace numbers with inline styles for highlighting
-        highlightedText = highlightedText.replace(numberRegex, (match) => {
-          return `<span style="background-color: #add8e6; border-radius: 3px; padding: 2px;">${match}</span>`;
-        });
-
-        element.innerHTML = highlightedText;
+        // If highlighting occurred, replace the text node
+        if (highlightedHTML !== text) {
+          const wrapper = document.createElement("span");
+          wrapper.innerHTML = highlightedHTML;
+          node.parentNode.replaceChild(wrapper, node);
+        }
       }
 
-      // Process all text elements in the iframe
-      const elements = iframeDocument.querySelectorAll("body *:not(script):not(style):not(iframe)");
-
-      elements.forEach((element) => {
-        if (element.children.length === 0) {
-          // Only process elements without children
-          highlightText(element);
+      // Traverse and process all text nodes
+      function traverseAndHighlight(element) {
+        const walker = iframeDocument.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
+        let node;
+        while ((node = walker.nextNode())) {
+          if (node.nodeValue.trim()) {
+            processTextNode(node);
+          }
         }
-      });
+      }
+
+      // Process the iframe's body content
+      traverseAndHighlight(iframeDocument.body);
     } catch (error) {
       console.error("Could not access iframe content:", error);
     }
