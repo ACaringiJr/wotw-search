@@ -10,27 +10,26 @@ document.addEventListener("DOMContentLoaded", function () {
       const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
 
       // Regex patterns
-      const properNounRegex = /(?<![.!?]\s)\b[A-Z][a-z]*\b/g; // Avoids words after punctuation
-      const numberRegex = /\b\d+\b/g;
+      const properNounRegex = /(?<![\.\!\?]\s)\b[A-Z][a-z]*\b/g; // Proper nouns not at sentence start
+      const numberRegex = /\b\d+\b/g; // Numbers
 
       // Function to process text nodes
       function processTextNode(node) {
-        let text = node.nodeValue;
+        const text = node.nodeValue;
 
-        // Replace proper nouns with inline styles
-        text = text.replace(properNounRegex, (match) => {
-          return `<span style="background-color: #e0b3ff; border-radius: 3px; padding: 2px;">${match}</span>`;
-        });
-
-        // Replace numbers with inline styles
-        text = text.replace(numberRegex, (match) => {
-          return `<span style="background-color: #add8e6; border-radius: 3px; padding: 2px;">${match}</span>`;
-        });
+        // Replace proper nouns and numbers with styled spans
+        const highlightedText = text
+          .replace(properNounRegex, (match) => {
+            return `<span style="background-color: #e0b3ff; border-radius: 3px; padding: 2px;">${match}</span>`;
+          })
+          .replace(numberRegex, (match) => {
+            return `<span style="background-color: #add8e6; border-radius: 3px; padding: 2px;">${match}</span>`;
+          });
 
         // Replace the text node with a span-wrapped HTML fragment
-        const span = document.createElement("span");
-        span.innerHTML = text;
-        node.parentNode.replaceChild(span, node);
+        const wrapper = document.createElement("span");
+        wrapper.innerHTML = highlightedText;
+        node.parentNode.replaceChild(wrapper, node);
       }
 
       // Traverse and process all text nodes
@@ -38,7 +37,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const walker = iframeDocument.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
         let node;
         while ((node = walker.nextNode())) {
-          processTextNode(node);
+          if (node.nodeValue.trim()) {
+            processTextNode(node);
+          }
         }
       }
 
