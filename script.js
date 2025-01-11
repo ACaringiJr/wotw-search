@@ -5,38 +5,44 @@ document.addEventListener("DOMContentLoaded", function () {
   const openTabButton = document.getElementById("openTab");
 
   // Function to highlight proper nouns and numbers with inline styles
-  function highlightText(element) {
-    const properNounRegex = /\b[A-Z][a-z]*\b/g;
-    const numberRegex = /\b\d+\b/g;
-    const text = element.innerHTML;
+  function highlightTextInIframe(iframe) {
+    try {
+      const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
 
-    // Replace proper nouns with inline styles for highlighting
-    let highlightedText = text.replace(properNounRegex, (match) => {
-      return `<span style="background-color: #e0b3ff; border-radius: 3px; padding: 2px;">${match}</span>`;
-    });
+      // Regex patterns for proper nouns and numbers
+      const properNounRegex = /\b[A-Z][a-z]*\b/g;
+      const numberRegex = /\b\d+\b/g;
 
-    // Replace numbers with inline styles for highlighting
-    highlightedText = highlightedText.replace(numberRegex, (match) => {
-      return `<span style="background-color: #add8e6; border-radius: 3px; padding: 2px;">${match}</span>`;
-    });
+      // Function to highlight text in an element
+      function highlightText(element) {
+        const text = element.innerHTML;
 
-    element.innerHTML = highlightedText;
-  }
+        // Replace proper nouns with inline styles for highlighting
+        let highlightedText = text.replace(properNounRegex, (match) => {
+          return `<span style="background-color: #e0b3ff; border-radius: 3px; padding: 2px;">${match}</span>`;
+        });
 
-  // Process all relevant text elements on the page
-  function processPage() {
-    const elements = document.querySelectorAll("body *:not(script):not(style):not(iframe)");
+        // Replace numbers with inline styles for highlighting
+        highlightedText = highlightedText.replace(numberRegex, (match) => {
+          return `<span style="background-color: #add8e6; border-radius: 3px; padding: 2px;">${match}</span>`;
+        });
 
-    elements.forEach((element) => {
-      if (element.children.length === 0) {
-        // Only process leaf nodes (elements without children)
-        highlightText(element);
+        element.innerHTML = highlightedText;
       }
-    });
-  }
 
-  // Highlight text before handling other functionality
-  processPage();
+      // Process all relevant text elements in the iframe
+      const elements = iframeDocument.querySelectorAll("body *:not(script):not(style):not(iframe)");
+
+      elements.forEach((element) => {
+        if (element.children.length === 0) {
+          // Only process leaf nodes (elements without children)
+          highlightText(element);
+        }
+      });
+    } catch (error) {
+      console.error("Could not access iframe content:", error);
+    }
+  }
 
   // Check if there is a query parameter in the URL
   const urlParams = new URLSearchParams(window.location.search);
@@ -46,6 +52,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // Prepopulate the iframe and input field if the section is present in the URL
     sectionInput.value = section;
     iframe.src = `./strayersources3ehs/strayersources3ehs_ch${section}.html`;
+
+    // Wait for the iframe to load before highlighting
+    iframe.onload = function () {
+      highlightTextInIframe(iframe);
+    };
   }
 
   // Handle form submission
@@ -61,6 +72,11 @@ document.addEventListener("DOMContentLoaded", function () {
       // Update the URL with the section parameter
       const newUrl = `${window.location.origin}${window.location.pathname}?section=${encodeURIComponent(sectionValue)}`;
       window.history.pushState({ path: newUrl }, "", newUrl);
+
+      // Wait for the iframe to load before highlighting
+      iframe.onload = function () {
+        highlightTextInIframe(iframe);
+      };
     }
   });
 
