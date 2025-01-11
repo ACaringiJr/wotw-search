@@ -4,6 +4,40 @@ document.addEventListener("DOMContentLoaded", function () {
   const sectionInput = document.getElementById("section");
   const openTabButton = document.getElementById("openTab");
 
+  // Function to highlight proper nouns and numbers with inline styles
+  function highlightText(element) {
+    const properNounRegex = /\b[A-Z][a-z]*\b/g;
+    const numberRegex = /\b\d+\b/g;
+    const text = element.innerHTML;
+
+    // Replace proper nouns with inline styles for highlighting
+    let highlightedText = text.replace(properNounRegex, (match) => {
+      return `<span style="background-color: #e0b3ff; border-radius: 3px; padding: 2px;">${match}</span>`;
+    });
+
+    // Replace numbers with inline styles for highlighting
+    highlightedText = highlightedText.replace(numberRegex, (match) => {
+      return `<span style="background-color: #add8e6; border-radius: 3px; padding: 2px;">${match}</span>`;
+    });
+
+    element.innerHTML = highlightedText;
+  }
+
+  // Process all relevant text elements on the page
+  function processPage() {
+    const elements = document.querySelectorAll("body *:not(script):not(style):not(iframe)");
+
+    elements.forEach((element) => {
+      if (element.children.length === 0) {
+        // Only process leaf nodes (elements without children)
+        highlightText(element);
+      }
+    });
+  }
+
+  // Highlight text before handling other functionality
+  processPage();
+
   // Check if there is a query parameter in the URL
   const urlParams = new URLSearchParams(window.location.search);
   const section = urlParams.get("section");
