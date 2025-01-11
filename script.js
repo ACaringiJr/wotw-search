@@ -4,48 +4,56 @@ document.addEventListener("DOMContentLoaded", function () {
   const sectionInput = document.getElementById("section");
   const openTabButton = document.getElementById("openTab");
 
-  // Function to highlight proper nouns and numbers with inline styles
+  // Function to highlight proper nouns and numbers
   function highlightTextInIframe(iframe) {
     try {
       const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
 
       // Regex patterns for proper nouns and numbers
-      const properNounRegex = /(?<![.!?\n]\s*)\b[A-Z][a-z]*\b/g; // Skip words at start of sentences/paragraphs
+      const properNounRegex = /(?<![.!?\n]\s*)\b[A-Z][a-z]*\b/g; // Excludes words at sentence starts
       const numberRegex = /\b\d+\b/g;
 
-      // Function to process text nodes
-      function processTextNode(node) {
-        const text = node.nodeValue;
+      // Function to process a text node
+      function processTextNode(textNode) {
+        const text = textNode.nodeValue;
 
-        // Replace proper nouns and numbers with styled spans
-        const highlightedHTML = text
-          .replace(properNounRegex, (match) => {
-            return `<span style="background-color: #e0b3ff; border-radius: 3px; padding: 2px;">${match}</span>`;
-          })
-          .replace(numberRegex, (match) => {
-            return `<span style="background-color: #add8e6; border-radius: 3px; padding: 2px;">${match}</span>`;
-          });
+        // Split text into parts to wrap matches
+        const parts = text.split(/(\b[A-Z][a-z]*\b|\b\d+\b)/g); // Matches proper nouns and numbers
+        const fragment = document.createDocumentFragment();
 
-        // If highlighting occurred, replace the text node
-        if (highlightedHTML !== text) {
-          const wrapper = document.createElement("span");
-          wrapper.innerHTML = highlightedHTML;
-          node.parentNode.replaceChild(wrapper, node);
-        }
-      }
-
-      // Traverse and process all text nodes
-      function traverseAndHighlight(element) {
-        const walker = iframeDocument.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
-        let node;
-        while ((node = walker.nextNode())) {
-          if (node.nodeValue.trim()) {
-            processTextNode(node);
+        parts.forEach((part) => {
+          if (properNounRegex.test(part)) {
+            const span = document.createElement("span");
+            span.style.backgroundColor = "#e0b3ff";
+            span.style.borderRadius = "3px";
+            span.style.padding = "2px";
+            span.textContent = part;
+            fragment.appendChild(span);
+          } else if (numberRegex.test(part)) {
+            const span = document.createElement("span");
+            span.style.backgroundColor = "#add8e6";
+            span.style.borderRadius = "3px";
+            span.style.padding = "2px";
+            span.textContent = part;
+            fragment.appendChild(span);
+          } else {
+            fragment.appendChild(document.createTextNode(part));
           }
+        });
+
+        textNode.parentNode.replaceChild(fragment, textNode);
+      }
+
+      // Function to recursively process all child nodes
+      function traverseAndHighlight(node) {
+        if (node.nodeType === Node.TEXT_NODE) {
+          processTextNode(node);
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+          Array.from(node.childNodes).forEach(traverseAndHighlight);
         }
       }
 
-      // Process the iframe's body content
+      // Start processing the body of the iframe
       traverseAndHighlight(iframeDocument.body);
     } catch (error) {
       console.error("Could not access iframe content:", error);
