@@ -9,36 +9,41 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
 
-      // Regex patterns for proper nouns and numbers
-      const properNounRegex = /\b[A-Z][a-z]*\b/g;
+      // Regex patterns
+      const properNounRegex = /(?<![.!?]\s)\b[A-Z][a-z]*\b/g; // Avoids words after punctuation
       const numberRegex = /\b\d+\b/g;
 
-      // Function to highlight text in an element
-      function highlightText(element) {
-        const text = element.innerHTML;
+      // Function to process text nodes
+      function processTextNode(node) {
+        let text = node.nodeValue;
 
-        // Replace proper nouns with inline styles for highlighting
-        let highlightedText = text.replace(properNounRegex, (match) => {
+        // Replace proper nouns with inline styles
+        text = text.replace(properNounRegex, (match) => {
           return `<span style="background-color: #e0b3ff; border-radius: 3px; padding: 2px;">${match}</span>`;
         });
 
-        // Replace numbers with inline styles for highlighting
-        highlightedText = highlightedText.replace(numberRegex, (match) => {
+        // Replace numbers with inline styles
+        text = text.replace(numberRegex, (match) => {
           return `<span style="background-color: #add8e6; border-radius: 3px; padding: 2px;">${match}</span>`;
         });
 
-        element.innerHTML = highlightedText;
+        // Replace the text node with a span-wrapped HTML fragment
+        const span = document.createElement("span");
+        span.innerHTML = text;
+        node.parentNode.replaceChild(span, node);
       }
 
-      // Process all relevant text elements in the iframe
-      const elements = iframeDocument.querySelectorAll("body *:not(script):not(style):not(iframe)");
-
-      elements.forEach((element) => {
-        if (element.children.length === 0) {
-          // Only process leaf nodes (elements without children)
-          highlightText(element);
+      // Traverse and process all text nodes
+      function traverseNodes(element) {
+        const walker = iframeDocument.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
+        let node;
+        while ((node = walker.nextNode())) {
+          processTextNode(node);
         }
-      });
+      }
+
+      // Process the iframe's body content
+      traverseNodes(iframeDocument.body);
     } catch (error) {
       console.error("Could not access iframe content:", error);
     }
