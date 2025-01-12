@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
       // Regex patterns for proper nouns and numbers
       const properNounRegex = /\b[A-Z][a-z]*\b/g; // Match words starting with capital letters
       const numberRegex = /\b\d+\b/g; // Match numbers
-      const skipRegex = /(?:^|[.!?]\s*)[A-Z][a-z]*\b/; // Exclude first words after punctuation or at start
 
       // Function to process a text node
       function processTextNode(textNode) {
@@ -22,20 +21,22 @@ document.addEventListener("DOMContentLoaded", function () {
         const parts = text.split(/(\b[A-Z][a-z]*\b|\b\d+\b)/g); // Split on proper nouns and numbers
         const fragment = document.createDocumentFragment();
 
-        let isFirstWord = true; // Track the first word of the node
+        let isSentenceStart = true; // Track sentence start
 
         parts.forEach((part) => {
           const isProperNoun = properNounRegex.test(part);
           const isNumber = numberRegex.test(part);
 
-          // Skip highlighting if it's the first word or follows punctuation
-          if (
-            isFirstWord ||
-            skipRegex.test(part) // Matches proper nouns that are sentence starters
-          ) {
-            isFirstWord = false; // After skipping the first word, process others normally
+          // Skip highlighting for proper nouns at the start of sentences
+          if (isProperNoun && isSentenceStart) {
+            isSentenceStart = false; // After the first word, continue processing normally
             fragment.appendChild(document.createTextNode(part)); // Append unmodified text
             return;
+          }
+
+          // Reset sentence start after punctuation
+          if (/[.!?]\s*$/.test(part)) {
+            isSentenceStart = true;
           }
 
           if (isProperNoun) {
