@@ -10,26 +10,41 @@ document.addEventListener("DOMContentLoaded", function () {
       const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
 
       // Regex patterns for proper nouns and numbers
-      const properNounRegex = /(?<![.!?\n]\s*)\b[A-Z][a-z]*\b/g; // Excludes words at sentence starts
-      const numberRegex = /\b\d+\b/g;
+      const properNounRegex = /\b[A-Z][a-z]*\b/g; // Match words starting with capital letters
+      const numberRegex = /\b\d+\b/g; // Match numbers
 
       // Function to process a text node
       function processTextNode(textNode) {
         const text = textNode.nodeValue;
 
-        // Split text into parts to wrap matches
-        const parts = text.split(/(\b[A-Z][a-z]*\b|\b\d+\b)/g); // Matches proper nouns and numbers
+        // Split the text into words
+        const parts = text.split(/(\b[A-Z][a-z]*\b|\b\d+\b)/g); // Split on proper nouns and numbers
         const fragment = document.createDocumentFragment();
 
+        // Flag to track the first word and words after punctuation
+        let isFirstWord = true;
+        let lastChar = ''; // Store the last character to check punctuation
+
         parts.forEach((part) => {
-          if (properNounRegex.test(part)) {
+          const isProperNoun = properNounRegex.test(part);
+          const isNumber = numberRegex.test(part);
+
+          // Skip highlighting if it's the first word or follows punctuation
+          if (isFirstWord || /[.!?]\s*$/.test(lastChar)) {
+            isFirstWord = false;
+            lastChar = part.slice(-1); // Update last character
+            fragment.appendChild(document.createTextNode(part)); // Just append text without highlight
+            return;
+          }
+
+          if (isProperNoun) {
             const span = document.createElement("span");
             span.style.backgroundColor = "#e0b3ff";
             span.style.borderRadius = "3px";
             span.style.padding = "2px";
             span.textContent = part;
             fragment.appendChild(span);
-          } else if (numberRegex.test(part)) {
+          } else if (isNumber) {
             const span = document.createElement("span");
             span.style.backgroundColor = "#add8e6";
             span.style.borderRadius = "3px";
@@ -39,6 +54,8 @@ document.addEventListener("DOMContentLoaded", function () {
           } else {
             fragment.appendChild(document.createTextNode(part));
           }
+
+          lastChar = part.slice(-1); // Update the last character
         });
 
         textNode.parentNode.replaceChild(fragment, textNode);
