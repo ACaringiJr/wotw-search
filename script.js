@@ -12,28 +12,29 @@ document.addEventListener("DOMContentLoaded", function () {
       // Regex patterns for proper nouns and numbers
       const properNounRegex = /\b[A-Z][a-z]*\b/g; // Match words starting with capital letters
       const numberRegex = /\b\d+\b/g; // Match numbers
+      const skipRegex = /(?:^|[.!?]\s*)[A-Z][a-z]*\b/; // Exclude first words after punctuation or at start
 
       // Function to process a text node
       function processTextNode(textNode) {
         const text = textNode.nodeValue;
 
-        // Split the text into words
+        // Split text into parts
         const parts = text.split(/(\b[A-Z][a-z]*\b|\b\d+\b)/g); // Split on proper nouns and numbers
         const fragment = document.createDocumentFragment();
 
-        // Flag to track the first word and words after punctuation
-        let isFirstWord = true;
-        let lastChar = ''; // Store the last character to check punctuation
+        let isFirstWord = true; // Track the first word of the node
 
         parts.forEach((part) => {
           const isProperNoun = properNounRegex.test(part);
           const isNumber = numberRegex.test(part);
 
           // Skip highlighting if it's the first word or follows punctuation
-          if (isFirstWord || /[.!?]\s*$/.test(lastChar)) {
-            isFirstWord = false;
-            lastChar = part.slice(-1); // Update last character
-            fragment.appendChild(document.createTextNode(part)); // Just append text without highlight
+          if (
+            isFirstWord ||
+            skipRegex.test(part) // Matches proper nouns that are sentence starters
+          ) {
+            isFirstWord = false; // After skipping the first word, process others normally
+            fragment.appendChild(document.createTextNode(part)); // Append unmodified text
             return;
           }
 
@@ -54,8 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
           } else {
             fragment.appendChild(document.createTextNode(part));
           }
-
-          lastChar = part.slice(-1); // Update the last character
         });
 
         textNode.parentNode.replaceChild(fragment, textNode);
