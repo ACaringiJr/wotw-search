@@ -1,3 +1,76 @@
+document.addEventListener("DOMContentLoaded", function () {
+  // Function to highlight proper nouns and numbers
+  function highlightTextOnPage() {
+    // Regex patterns for proper nouns and numbers
+    const properNounRegex = /\b[A-Z][a-z]*\b/g; // Match words starting with capital letters
+    const numberRegex = /\b\d+\b/g; // Match numbers
+
+    // Function to process a text node
+    function processTextNode(textNode) {
+      const text = textNode.nodeValue;
+
+      // Split text into parts
+      const parts = text.split(/(\b[A-Z][a-z]*\b|\b\d+\b)/g); // Split on proper nouns and numbers
+      const fragment = document.createDocumentFragment();
+
+      let isSentenceStart = true; // Track sentence start
+
+      parts.forEach((part) => {
+        const isProperNoun = properNounRegex.test(part);
+        const isNumber = numberRegex.test(part);
+
+        // Skip highlighting for proper nouns at the start of sentences
+        if (isProperNoun && isSentenceStart) {
+          isSentenceStart = false; // After the first word, continue processing normally
+          fragment.appendChild(document.createTextNode(part)); // Append unmodified text
+          return;
+        }
+
+        // Reset sentence start after punctuation
+        if (/[.!?]\s*$/.test(part)) {
+          isSentenceStart = true;
+        }
+
+        if (isProperNoun) {
+          const span = document.createElement("span");
+          span.style.backgroundColor = "#e0b3ff";
+          span.style.borderRadius = "3px";
+          span.style.padding = "2px";
+          span.textContent = part;
+          fragment.appendChild(span);
+        } else if (isNumber) {
+          const span = document.createElement("span");
+          span.style.backgroundColor = "#add8e6";
+          span.style.borderRadius = "3px";
+          span.style.padding = "2px";
+          span.textContent = part;
+          fragment.appendChild(span);
+        } else {
+          fragment.appendChild(document.createTextNode(part));
+        }
+      });
+
+      textNode.parentNode.replaceChild(fragment, textNode);
+    }
+
+    // Function to recursively process all child nodes
+    function traverseAndHighlight(node) {
+      if (node.nodeType === Node.TEXT_NODE) {
+        processTextNode(node);
+      } else if (node.nodeType === Node.ELEMENT_NODE) {
+        Array.from(node.childNodes).forEach(traverseAndHighlight);
+      }
+    }
+
+    // Start processing the body of the document
+    traverseAndHighlight(document.body);
+  }
+
+  // Call the function to highlight text on the current page
+  highlightTextOnPage();
+});
+
+
 /* 
    This is the standard template you should add to your book JS file before 
    customizing.
