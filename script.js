@@ -12,11 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Prepopulate the iframe and input field if the section is present in the URL
     sectionInput.value = section;
     iframe.src = `./strayersources3ehs/strayersources3ehs_ch${section}.html`;
-
-    // Wait for the iframe to load before highlighting
-    iframe.onload = function () {
-      highlightTextInIframe(iframe);
-    };
   }
 
   // Handle form submission
